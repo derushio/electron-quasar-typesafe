@@ -5,6 +5,7 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "paths": {
+      "@/*": ["./*"],
       "$/*": ["common/*"],
       "%/*": ["prisma/*"]
     }

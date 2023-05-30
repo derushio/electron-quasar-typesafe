@@ -1,9 +1,9 @@
 <template>
-  <div>{{ result }}</div>
+  <MainLayout>
+    <q-btn>test</q-btn>
+  </MainLayout>
 </template>
 
 <script setup lang="ts">
-const serverFn = useServerFunctions();
-
-const result = ref(await serverFn.serverFunctionTest());
+import MainLayout from '@/layouts/MainLayout.vue';
 </script>
