@@ -1,7 +1,13 @@
 <template>
   <MainLayout>
-    <q-btn @click="$q.notify('test')">test</q-btn>
-    {{ serverFunctionTestResult }}
+    <q-page class="q-pa-lg">
+      <q-btn @click="$q.notify('test')" class="q-mb-md">test</q-btn>
+      <div>
+        <q-chip v-for="(item, i) in serverFunctionTestResult" :key="i">{{
+          item
+        }}</q-chip>
+      </div>
+    </q-page>
   </MainLayout>
 </template>
 

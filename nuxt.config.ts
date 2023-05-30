@@ -14,7 +14,6 @@ export default defineNuxtConfig({
     '@/': './',
     '$/': './common/',
     '%/': './prisma/',
-    '#build/': './.nuxt/',
   },
   ...{
     quasar: {
