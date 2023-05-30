@@ -2,6 +2,8 @@
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs"
-  }
+    "module": "commonjs",
+    "esModuleInterop": true
+  },
+  "files": ["./env.d.ts"]
 }

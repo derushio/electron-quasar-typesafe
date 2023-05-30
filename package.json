@@ -5,6 +5,7 @@
   "scripts": {
     "build:nuxt": "nuxt build",
     "dev:nuxt": "nuxt dev",
+    "dev:electron": "electron .",
     "generate:nuxt": "nuxt generate",
     "preview:nuxt": "nuxt preview",
     "postinstall:nuxt": "nuxt prepare"

@@ -34,7 +34,7 @@ function createWindow() {
     },
   });
 
-  // void mainWindow.loadURL(process.env.APP_URL);
+  void mainWindow.loadURL(process.env.APP_URL);
 
   if (process.env.DEBUGGING) {
     // if on DEV or Production with debug enabled
