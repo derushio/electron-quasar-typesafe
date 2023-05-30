@@ -5,5 +5,5 @@
     "module": "commonjs",
     "esModuleInterop": true
   },
-  "files": ["./env.d.ts"]
+  "files": ["./env.d.ts", "./any.d.ts"]
 }

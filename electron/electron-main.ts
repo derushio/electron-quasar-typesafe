@@ -1,9 +1,14 @@
+import { start as nuxtStart } from '@nuxt/cli';
 import dotenv from 'dotenv';
 import { BrowserWindow, app, nativeTheme } from 'electron';
 import os from 'os';
 import path from 'path';
 
 dotenv.config();
+
+if (!process.env.DEBUGGING) {
+  nuxtStart();
+}
 
 // needed in case process is undefined under Linux
 const platform = process.platform || os.platform();
