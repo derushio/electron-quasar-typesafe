@@ -2,11 +2,11 @@
   "name": "nuxt-app",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "build:nuxt": "nuxt build",
+    "dev:nuxt": "nuxt dev",
+    "generate:nuxt": "nuxt generate",
+    "preview:nuxt": "nuxt preview",
+    "postinstall:nuxt": "nuxt prepare"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
