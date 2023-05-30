@@ -1,4 +1,5 @@
 const cpx = require('cpx');
+const fs = require('fs');
 
 module.exports = {
   packagerConfig: {},
@@ -19,7 +20,9 @@ module.exports = {
   ],
   hooks: {
     postPackage: async (platform, arch) => {
-      cpx.copySync('./.env', './out/nuxt-app-linux-x64/');
+      const env = (await fs.promises.readFile('./.env.package')).toString();
+      await fs.promises.writeFile('./out/nuxt-app-linux-x64/.env', env);
+
       cpx.copySync(
         './.output/**/*',
         './out/nuxt-app-linux-x64/resources/app/.output/',

@@ -1,11 +1,9 @@
+import { env } from '$/env';
 import { timeout } from '$/utils/timeout';
-import dotenv from 'dotenv';
+import { ChildProcess, fork } from 'child_process';
 import { BrowserWindow, app, nativeTheme } from 'electron';
-import nuxtStart from 'nuxt-start';
 import os from 'os';
 import path from 'path';
-
-dotenv.config();
 
 // needed in case process is undefined under Linux
 const platform = process.platform || os.platform();
@@ -18,13 +16,16 @@ try {
   }
 } catch (_) {}
 
+let nuxtProcess: ChildProcess | undefined;
 let mainWindow: BrowserWindow | undefined;
 
 async function createWindow() {
-  // if (!process.env.DEBUGGING) {
-  nuxtStart.run('start');
-  await timeout(1000);
-  // }
+  console.log(env.DEBUGGING);
+  if (!env.DEBUGGING) {
+    nuxtProcess = fork('./.output/server/index.mjs', {
+      cwd: app.getAppPath(),
+    });
+  }
 
   /**
    * Initial window options
@@ -41,9 +42,18 @@ async function createWindow() {
     },
   });
 
-  await mainWindow.loadURL(process.env.APP_URL);
+  let success = false;
+  do {
+    try {
+      await mainWindow.loadURL(env.APP_URL);
+      success = true;
+    } catch {
+      success = false;
+      await timeout(100);
+    }
+  } while (!success);
 
-  if (process.env.DEBUGGING) {
+  if (env.DEBUGGING) {
     // if on DEV or Production with debug enabled
     mainWindow.webContents.openDevTools();
   } else {
@@ -54,6 +64,9 @@ async function createWindow() {
   }
 
   mainWindow.on('closed', () => {
+    nuxtProcess?.kill();
+    nuxtProcess = undefined;
+
     mainWindow = undefined;
   });
 }

@@ -9,5 +9,5 @@
       "%/*": ["prisma/*"]
     }
   },
-  "files": ["./env.d.ts", "./any.d.ts"]
+  "files": ["./any.d.ts"]
 }
