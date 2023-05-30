@@ -20,7 +20,6 @@ let nuxtProcess: ChildProcess | undefined;
 let mainWindow: BrowserWindow | undefined;
 
 async function createWindow() {
-  console.log(env.DEBUGGING);
   if (!env.DEBUGGING) {
     nuxtProcess = fork('./.output/server/index.mjs', {
       cwd: app.getAppPath(),
