@@ -2,3 +2,5 @@
 export default defineNuxtConfig({
 
 })
+
+declare function defineNuxtConfig(arg0: {}): any;
