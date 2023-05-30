@@ -3,7 +3,11 @@
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "module": "commonjs",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "$/*": ["common/*"],
+      "%/*": ["prisma/*"]
+    }
   },
   "files": ["./env.d.ts", "./any.d.ts"]
 }

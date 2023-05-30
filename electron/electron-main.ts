@@ -1,14 +1,11 @@
-import { start as nuxtStart } from '@nuxt/cli';
+import { timeout } from '$/utils/timeout';
 import dotenv from 'dotenv';
 import { BrowserWindow, app, nativeTheme } from 'electron';
+import nuxtStart from 'nuxt-start';
 import os from 'os';
 import path from 'path';
 
 dotenv.config();
-
-if (!process.env.DEBUGGING) {
-  nuxtStart();
-}
 
 // needed in case process is undefined under Linux
 const platform = process.platform || os.platform();
@@ -23,7 +20,12 @@ try {
 
 let mainWindow: BrowserWindow | undefined;
 
-function createWindow() {
+async function createWindow() {
+  // if (!process.env.DEBUGGING) {
+  nuxtStart.run('start');
+  await timeout(1000);
+  // }
+
   /**
    * Initial window options
    */
@@ -39,7 +41,7 @@ function createWindow() {
     },
   });
 
-  void mainWindow.loadURL(process.env.APP_URL);
+  await mainWindow.loadURL(process.env.APP_URL);
 
   if (process.env.DEBUGGING) {
     // if on DEV or Production with debug enabled
@@ -66,6 +68,6 @@ app.on('window-all-closed', () => {
 
 app.on('activate', () => {
   if (mainWindow === undefined) {
-    createWindow();
+    void createWindow();
   }
 });
