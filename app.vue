@@ -1,6 +1,6 @@
 <template>
   <MainLayout>
-    <q-btn>test</q-btn>
+    <q-btn @click="$q.notify('test')">test</q-btn>
   </MainLayout>
 </template>
 
