@@ -1,6 +1,7 @@
 {
   "name": "nuxt-app",
   "private": true,
+  "main": "index.js",
   "scripts": {
     "build:nuxt": "nuxt build",
     "dev:nuxt": "nuxt dev",
@@ -13,11 +14,16 @@
     "@types/node": "^18",
     "@typescript-eslint/eslint-plugin": "^5.59.8",
     "@typescript-eslint/parser": "^5.59.8",
+    "dotenv": "^16.0.3",
+    "electron": "^25.0.0",
     "eslint": "^8.41.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-vue": "^9.14.1",
     "nuxt": "^3.5.2",
     "nuxt-server-fn": "^0.3.0",
-    "prettier": "^2.8.8"
+    "prettier": "^2.8.8",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.0.4"
   }
 }
