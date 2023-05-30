@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build:nuxt": "nuxt build",
+    "dev": "run-p dev:nuxt dev:electron",
     "dev:nuxt": "nuxt dev",
     "dev:electron": "electron .",
     "generate:nuxt": "nuxt generate",
@@ -20,6 +21,7 @@
     "eslint": "^8.41.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-vue": "^9.14.1",
+    "npm-run-all": "^4.1.5",
     "nuxt": "^3.5.2",
     "nuxt-server-fn": "^0.3.0",
     "prettier": "^2.8.8",
