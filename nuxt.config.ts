@@ -4,7 +4,7 @@ import { defineNuxtConfig } from 'nuxt/config';
 export default defineNuxtConfig({
   modules: ['nuxt-quasar-ui', 'nuxt-server-fn'],
   build: {
-    transpile: ['nuxt-server-fn'],
+    transpile: ['nuxt-server-fn', 'defu'],
   },
   css: [
     'quasar/dist/quasar.prod.css',
@@ -14,6 +14,11 @@ export default defineNuxtConfig({
     '@/': './',
     '$/': './common/',
     '%/': './prisma/',
+  },
+  vite: {
+    build: {
+      target: 'node18',
+    },
   },
   ...{
     quasar: {

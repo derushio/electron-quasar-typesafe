@@ -1,5 +1,5 @@
-import { env } from '$/env';
-import { timeout } from '$/utils/timeout';
+import { env } from '$/env.js';
+import { timeout } from '$/utils/timeout.js';
 import { ChildProcess, fork } from 'child_process';
 import { BrowserWindow, app, nativeTheme } from 'electron';
 import os from 'os';
@@ -20,11 +20,12 @@ let nuxtProcess: ChildProcess | undefined;
 let mainWindow: BrowserWindow | undefined;
 
 async function createWindow() {
-  if (!env.DEBUGGING) {
-    nuxtProcess = fork('./.output/server/index.mjs', {
-      cwd: app.getAppPath(),
-    });
-  }
+  // if (!env.DEBUGGING) {
+  //   nuxtProcess = fork('./.output/server/index.mjs', {
+  //     cwd: app.getAppPath(),
+  //   });
+  // }
+  import('@/.output/server/index.mjs');
 
   /**
    * Initial window options
