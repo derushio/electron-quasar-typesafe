@@ -16,8 +16,7 @@
     "generate:nuxt": "nuxt generate",
     "preview:nuxt": "nuxt preview",
     "postinstall:nuxt": "nuxt prepare",
-    "make": "electron-forge make",
-    "package": "electron-forge package"
+    "package": "electron-packager . electron-nuxt --platform=linux --archx64 --out ./.packaged"
   },
   "dependencies": {
     "@babel/parser": "7.22.4",
@@ -44,6 +43,7 @@
     "destr": "1.2.2",
     "devalue": "4.3.2",
     "dotenv": "^16.0.3",
+    "electron-packager": "^17.1.1",
     "electron-squirrel-startup": "^1.0.0",
     "electron-vite": "^1.0.22",
     "eslint": "^8.41.0",
