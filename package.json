@@ -2,7 +2,7 @@
   "name": "nuxt-app",
   "description": "description",
   "private": true,
-  "main": "./out/main/index.js",
+  "main": "./.electron/index.js",
   "version": "0.0.1",
   "type": "commonjs",
   "build": {

@@ -18,6 +18,7 @@ export default defineConfig({
       lib: {
         entry: './src/main/index.mts',
       },
+      outDir: path.join(__dirname, '.electron'),
       watch: {
         include: ['./**/*.mts', './**/*.ts'],
       },
@@ -33,7 +34,7 @@ export default defineConfig({
         targets: [
           {
             src: path.join(__dirname, '.output', 'public'),
-            dest: path.join(__dirname, 'out'),
+            dest: path.join(__dirname, '.electron'),
           },
         ],
       }),
