@@ -12,7 +12,7 @@
     "build:nuxt": "nuxt build",
     "dev": "run-p dev:nuxt dev:electron",
     "dev:nuxt": "nuxt dev",
-    "dev:electron": "electron-forge start",
+    "dev:electron": "yarn electron-vite dev",
     "generate:nuxt": "nuxt generate",
     "preview:nuxt": "nuxt preview",
     "postinstall:nuxt": "nuxt prepare",
@@ -79,6 +79,7 @@
     "unenv": "1.5.1",
     "unhead": "1.1.27",
     "unstorage": "1.6.1",
+    "vite-plugin-static-copy": "^0.15.0",
     "vue": "3.3.4",
     "vue-bundle-renderer": "1.0.3"
   },

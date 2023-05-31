@@ -1,7 +1,7 @@
 import { env } from '$/env.js';
 import { timeout } from '$/utils/timeout.js';
-import { ChildProcess, fork } from 'child_process';
 import { BrowserWindow, app, nativeTheme } from 'electron';
+import { runCommand as nuxiRunCommand } from 'nuxi';
 import os from 'os';
 import path from 'path';
 
@@ -16,15 +16,9 @@ try {
   }
 } catch (_) {}
 
-let nuxtProcess: ChildProcess | undefined;
 let mainWindow: BrowserWindow | undefined;
 
 async function createWindow() {
-  // if (!env.DEBUGGING) {
-  //   nuxtProcess = fork('./.output/server/index.mjs', {
-  //     cwd: app.getAppPath(),
-  //   });
-  // }
   import('@/.output/server/index.mjs');
 
   /**
@@ -64,9 +58,6 @@ async function createWindow() {
   }
 
   mainWindow.on('closed', () => {
-    nuxtProcess?.kill();
-    nuxtProcess = undefined;
-
     mainWindow = undefined;
   });
 }

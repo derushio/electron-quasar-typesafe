@@ -1,5 +1,6 @@
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite';
 import path from 'path';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 const alias = {
   '@/': `${path.join(__dirname)}/`,
@@ -17,23 +18,41 @@ export default defineConfig({
       lib: {
         entry: './src/main/index.mts',
       },
+      watch: {
+        include: ['./**/*.mts', './**/*.ts'],
+      },
     },
     resolve: {
       alias: alias,
     },
     plugins: [
       externalizeDepsPlugin({
-        exclude: ['devalue'],
+        exclude: ['devalue', 'nuxi'],
+      }),
+      viteStaticCopy({
+        targets: [
+          {
+            src: path.join(__dirname, '.output', 'public'),
+            dest: path.join(__dirname, 'out'),
+          },
+        ],
       }),
     ],
   },
   preload: {
+    build: {
+      target: 'node18',
+      lib: {
+        entry: './src/preload/index.mts',
+      },
+      watch: {
+        include: ['./**/*.mts', './**/*.ts'],
+      },
+    },
     resolve: {
       alias: alias,
     },
     plugins: [externalizeDepsPlugin()],
   },
-  renderer: {
-    publicDir: './.output/public',
-  },
+  renderer: {},
 });
