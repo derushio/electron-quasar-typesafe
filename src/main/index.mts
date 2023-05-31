@@ -1,7 +1,6 @@
 import { env } from '$/env.js';
 import { timeout } from '$/utils/timeout.js';
 import { BrowserWindow, app, nativeTheme } from 'electron';
-import { runCommand as nuxiRunCommand } from 'nuxi';
 import os from 'os';
 import path from 'path';
 

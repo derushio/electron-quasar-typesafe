@@ -2,21 +2,24 @@
   "name": "nuxt-app",
   "description": "description",
   "private": true,
-  "main": "./.electron/index.js",
+  "main": "./.electron/main/index.js",
   "version": "0.0.1",
   "type": "commonjs",
   "build": {
     "asar": false
   },
   "scripts": {
+    "build": "run-s build:nuxt build:electron",
     "build:nuxt": "nuxt build",
+    "build:electron": "electron-vite build",
     "dev": "run-p dev:nuxt dev:electron",
     "dev:nuxt": "nuxt dev",
     "dev:electron": "yarn electron-vite dev",
     "generate:nuxt": "nuxt generate",
     "preview:nuxt": "nuxt preview",
     "postinstall:nuxt": "nuxt prepare",
-    "package": "electron-packager . electron-nuxt --platform=linux --archx64 --out ./.packaged"
+    "package:linux": "electron-packager . electron-nuxt --platform=linux --archx64 --out ./.packaged",
+    "package:win": "electron-packager . electron-nuxt --platform=win32 --archx64 --out ./.packaged"
   },
   "dependencies": {
     "@babel/parser": "7.22.4",

@@ -18,7 +18,7 @@ export default defineConfig({
       lib: {
         entry: './src/main/index.mts',
       },
-      outDir: path.join(__dirname, '.electron'),
+      outDir: path.join(__dirname, '.electron', 'main'),
       watch: {
         include: ['./**/*.mts', './**/*.ts'],
       },
@@ -46,6 +46,7 @@ export default defineConfig({
       lib: {
         entry: './src/preload/index.mts',
       },
+      outDir: path.join(__dirname, '.electron', 'preload'),
       watch: {
         include: ['./**/*.mts', './**/*.ts'],
       },
@@ -55,5 +56,9 @@ export default defineConfig({
     },
     plugins: [externalizeDepsPlugin()],
   },
-  renderer: {},
+  renderer: {
+    build: {
+      outDir: path.join(__dirname, '.electron', 'renderer'),
+    },
+  },
 });
