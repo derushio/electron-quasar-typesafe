@@ -23,3 +23,7 @@ onMounted(async () => {
   serverFunctionTestResult.value = await serverFns.serverFunctionTest();
 });
 </script>
+
+<style lang="scss">
+@import '@/assets/styles/app.scss';
+</style>
