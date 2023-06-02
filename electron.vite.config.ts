@@ -48,7 +48,7 @@ export default defineConfig({
       },
       outDir: path.join(__dirname, '.electron', 'preload'),
       watch: {
-        include: ['./**/*.mts', './**/*.ts'],
+        include: ['./.output/server/**/*.mjs'],
       },
     },
     resolve: {
