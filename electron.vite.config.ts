@@ -20,7 +20,7 @@ export default defineConfig({
       },
       outDir: path.join(__dirname, '.electron', 'main'),
       watch: {
-        include: ['./**/*.mts', './**/*.ts'],
+        include: ['./.output/server/**/*.mjs'],
       },
     },
     resolve: {
