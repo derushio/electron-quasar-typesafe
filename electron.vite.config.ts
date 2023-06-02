@@ -21,6 +21,9 @@ export default defineConfig({
       outDir: path.join(__dirname, '.electron', 'main'),
       watch: {
         include: ['./.output/server/**/*.mjs'],
+        chokidar: {
+          usePolling: true,
+        },
       },
     },
     resolve: {
@@ -47,9 +50,6 @@ export default defineConfig({
         entry: './src/preload/index.mts',
       },
       outDir: path.join(__dirname, '.electron', 'preload'),
-      watch: {
-        include: ['./.output/server/**/*.mjs'],
-      },
     },
     resolve: {
       alias: alias,
