@@ -18,6 +18,7 @@ try {
 let mainWindow: BrowserWindow | undefined;
 
 async function createWindow() {
+  // nuxt serverを起動
   import('@/.output/server/index.mjs');
 
   /**
