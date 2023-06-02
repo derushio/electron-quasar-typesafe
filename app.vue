@@ -20,6 +20,7 @@ const serverFns: typeof functions = useServerFunctions();
 const serverFunctionTestResult = ref<string[]>();
 
 onMounted(async () => {
+  console.log(await serverFns.serverFunctionTest());
   serverFunctionTestResult.value = await serverFns.serverFunctionTest();
 });
 </script>
