@@ -24,6 +24,9 @@ export default defineNuxtConfig({
       target: 'node18',
     },
   },
+  devServer: {
+    port: env.APP_PORT,
+  },
   ...{
     quasar: {
       plugins: ['Dialog', 'Loading', 'Notify'],

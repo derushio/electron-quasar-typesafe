@@ -1,6 +1,7 @@
 import { env } from '$/env.js';
 import { timeout } from '$/utils/timeout.js';
 import { BrowserWindow, app, nativeTheme } from 'electron';
+import fs from 'fs';
 import { runCommand as nuxiRunCommand } from 'nuxi';
 import os from 'os';
 import path from 'path';
@@ -10,9 +11,7 @@ const platform = process.platform || os.platform();
 
 try {
   if (platform === 'win32' && nativeTheme.shouldUseDarkColors === true) {
-    require('fs').unlinkSync(
-      path.join(app.getPath('userData'), 'DevTools Extensions'),
-    );
+    fs.unlinkSync(path.join(app.getPath('userData'), 'DevTools Extensions'));
   }
 } catch (_) {}
 
@@ -35,7 +34,7 @@ async function createWindow() {
     webPreferences: {
       contextIsolation: true,
       // More info: https://v2.quasar.dev/quasar-cli-webpack/developing-electron-apps/electron-preload-script
-      preload: path.resolve(__dirname, 'electron-preload.ts'),
+      preload: path.resolve(__dirname, '../preload/index.js'),
     },
   });
 
