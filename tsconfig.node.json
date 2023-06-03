@@ -5,6 +5,7 @@
     "composite": true,
     "types": ["electron-vite/node"],
     "paths": {
+      "~/*": ["./*"],
       "@/*": ["./src/renderer/*"],
       "#/*": ["./src/main/*"],
       "$/*": ["./src/common/*"],
