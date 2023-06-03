@@ -20,10 +20,7 @@ export default defineConfig({
       },
       outDir: path.join(__dirname, '.electron', 'main'),
       watch: {
-        include: ['./.output/server/**/*.mjs'],
-        chokidar: {
-          usePolling: true,
-        },
+        include: ['./src/main/**/*.mts'],
       },
     },
     resolve: {

@@ -8,10 +8,8 @@ process.env.NODE_ENV = env.DEBUGGING ? 'development' : 'production';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   dev: env.DEBUGGING,
-  modules: ['nuxt-quasar-ui', 'nuxt-server-fn'],
-  build: {
-    transpile: ['nuxt-server-fn', 'defu'],
-  },
+  modules: ['nuxt-quasar-ui'],
+  build: {},
   css: [
     'quasar/dist/quasar.prod.css',
     '@quasar/extras/material-icons/material-icons.css',
