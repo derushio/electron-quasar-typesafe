@@ -1,8 +1,10 @@
-import icon from '../../resources/icon.png?asset';
-
+import { appTrpcRouter } from '#/domains/ipc/router';
+import { store } from '#/store';
 import { electronApp, is, optimizer } from '@electron-toolkit/utils';
 import { BrowserWindow, app, shell } from 'electron';
+import { createIPCHandler } from 'electron-trpc/main';
 import path from 'path';
+import icon from '~/resources/icon.png?asset';
 
 async function createWindow(): Promise<void> {
   // Create the browser window.
@@ -16,6 +18,16 @@ async function createWindow(): Promise<void> {
       preload: path.join(__dirname, '../preload/index.js'),
       sandbox: false,
     },
+  });
+  store.mutations.setCurrentWindow(mainWindow);
+  const ipcHandler = createIPCHandler({
+    router: appTrpcRouter,
+    windows: [mainWindow],
+  });
+  store.mutations.setIpcHandler(ipcHandler);
+
+  mainWindow.on('focus', () => {
+    store.mutations.setCurrentWindow(mainWindow);
   });
 
   mainWindow.on('ready-to-show', () => {
