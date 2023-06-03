@@ -27,3 +27,12 @@
  *   }
  * }
  */
+import { contextBridge } from 'electron';
+import fs from 'fs';
+
+contextBridge.exposeInMainWorld('myAPI', {
+  doAThing: async () => {
+    console.log(await fs.promises.readdir('.'));
+    return ['test'];
+  },
+});

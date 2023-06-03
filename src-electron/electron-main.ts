@@ -1,4 +1,5 @@
 import { BrowserWindow, app, nativeTheme } from 'electron';
+import fs from 'fs';
 import os from 'os';
 import path from 'path';
 
@@ -7,9 +8,7 @@ const platform = process.platform || os.platform();
 
 try {
   if (platform === 'win32' && nativeTheme.shouldUseDarkColors === true) {
-    require('fs').unlinkSync(
-      path.join(app.getPath('userData'), 'DevTools Extensions'),
-    );
+    fs.unlinkSync(path.join(app.getPath('userData'), 'DevTools Extensions'));
   }
 } catch (_) {}
 

@@ -193,7 +193,7 @@ module.exports = configure(function (/* ctx */) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'electron-nuxt-typesafe2',
+        appId: 'electron-quasar-typesafe2',
       },
     },
 

@@ -1,4 +1,4 @@
-# Quasar App (electron-nuxt-typesafe2)
+# Quasar App (electron-quasar-typesafe2)
 
 A Quasar Project
 
