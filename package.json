@@ -1,6 +1,6 @@
 {
-  "name": "electron-quasar-typesafe3",
-  "version": "1.0.0",
+  "name": "electron-quasar-typesafe",
+  "version": "3.0.0",
   "description": "An Electron application with Vue and TypeScript",
   "main": "./out/main/index.js",
   "author": "example.com",
