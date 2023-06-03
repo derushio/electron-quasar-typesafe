@@ -11,7 +11,7 @@ module.exports = {
     parser: require.resolve('@typescript-eslint/parser'),
     extraFileExtensions: ['.vue'],
     // await-thenable などを有効化するのに必要
-    project: ['tsconfig.json'],
+    project: ['tsconfig.json', 'tsconfig.node.json', 'tsconfig.web.json'],
   },
 
   env: {
@@ -89,5 +89,6 @@ module.exports = {
 
     '@typescript-eslint/await-thenable': 'error',
     '@typescript-eslint/no-floating-promises': 'error',
+    '@typescript-eslint/ban-ts-comment': 'off',
   },
 };

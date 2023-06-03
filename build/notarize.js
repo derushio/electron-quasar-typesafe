@@ -6,7 +6,7 @@ module.exports = async (context) => {
   console.log('aftersign hook triggered, start to notarize app.');
 
   if (!process.env.CI) {
-    console.log(`skipping notarizing, not in CI.`);
+    console.log('skipping notarizing, not in CI.');
     return;
   }
 
