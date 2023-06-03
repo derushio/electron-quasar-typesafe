@@ -14,7 +14,7 @@
     "build:electron": "electron-vite build",
     "dev": "run-p dev:nuxt dev:electron",
     "dev:nuxt": "sane 'nuxt build' --glob='./**/*.vue' --glob='./**/*.scss' --glob='./**/*.mts' --glob='./**/*.ts'",
-    "dev:electron": "infloop electron-vite dev",
+    "dev:electron": "electron-vite dev",
     "postinstall": "nuxt prepare",
     "package:linux": "electron-packager . electron-nuxt --platform=linux --archx64 --out ./.packaged",
     "package:win": "electron-packager . electron-nuxt --platform=win32 --archx64 --out ./.packaged"

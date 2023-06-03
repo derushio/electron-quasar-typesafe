@@ -1,7 +1,7 @@
 import { env } from '$/env.js';
 import { timeout } from '$/utils/timeout.js';
 import { BrowserWindow, app, nativeTheme } from 'electron';
-import nuxi from 'nuxi';
+import { runCommand as nuxiRunCommand } from 'nuxi';
 import os from 'os';
 import path from 'path';
 
@@ -19,8 +19,10 @@ try {
 let mainWindow: BrowserWindow | undefined;
 
 async function createWindow() {
-  // nuxt serverを起動
-  void nuxi.runCommand('start');
+  if (!env.DEBUGGING) {
+    // nuxt serverを起動
+    void nuxiRunCommand('start');
+  }
 
   /**
    * Initial window options
