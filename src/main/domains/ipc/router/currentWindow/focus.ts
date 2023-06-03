@@ -4,13 +4,15 @@ import { responseOk } from '#/domains/ipc/router/response';
 import { store } from '#/store';
 
 export const currentWindowFocusRouter = t.router({
-  [`${currentWindowResource}/focus`]: t.procedure.mutation(async () => {
-    const mainWindow = store.states.currentWindow;
-    if (!mainWindow) {
-      return responseOk();
-    }
+  [`${currentWindowResource}/focus` as const]: t.procedure.mutation(
+    async () => {
+      const mainWindow = store.states.currentWindow;
+      if (!mainWindow) {
+        return responseOk();
+      }
 
-    mainWindow.focus();
-    return responseOk();
-  }),
+      mainWindow.focus();
+      return responseOk();
+    },
+  ),
 });
