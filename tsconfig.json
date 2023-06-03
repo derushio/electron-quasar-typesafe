@@ -1,6 +1,14 @@
 {
   "extends": "@quasar/app-vite/tsconfig-preset",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "#/*": ["./src-electron/*"],
+      "$/*": ["./src-common/*"],
+      "%/*": ["./prisma/*"]
+    }
   }
 }
