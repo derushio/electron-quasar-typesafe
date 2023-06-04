@@ -1,6 +1,6 @@
-import { t } from '#/domains/ipc';
-import { currentWindowResource } from '#/domains/ipc/router/currentWindow';
-import { responseOk } from '#/domains/ipc/router/response';
+import { t } from '#/controllers/ipc';
+import { currentWindowResource } from '#/controllers/ipc/router/currentWindow';
+import { responseOk } from '#/controllers/ipc/router/response';
 import { store } from '#/store';
 
 export const currentWindowFocusRouter = t.router({

@@ -1,10 +1,10 @@
-import { appTrpcRouter } from '#/domains/ipc/router';
+import { appTrpcRouter } from '#/controllers/ipc/router';
 import { store } from '#/store';
 import { electronApp, is, optimizer } from '@electron-toolkit/utils';
 import { BrowserWindow, app, shell } from 'electron';
 import { createIPCHandler } from 'electron-trpc/main';
 import path from 'path';
-import icon from '~/resources/icon.png?asset';
+import icon from '~/resources/icon.png';
 
 async function createWindow(): Promise<void> {
   // Create the browser window.

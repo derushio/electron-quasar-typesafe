@@ -1,6 +1,11 @@
 {
   "extends": "@electron-toolkit/tsconfig/tsconfig.node.json",
-  "include": [".eslintrc.cjs", "electron.vite.config.*", "src/main/**/*", "src/preload/**/*", "build/**/*"],
+  "include": [
+    ".eslintrc.cjs",
+    "electron.vite.config.*",
+    "src/main/**/*",
+    "build/**/*"
+  ],
   "compilerOptions": {
     "composite": true,
     "types": ["electron-vite/node"],
