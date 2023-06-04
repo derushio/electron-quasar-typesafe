@@ -6,7 +6,7 @@
 MEMO
 
 ```
-src/main の整理完了
+src/main の整理完了 (appもindex.tsから分離する？)
 TODO: src/renderer の整理
 ```
 
