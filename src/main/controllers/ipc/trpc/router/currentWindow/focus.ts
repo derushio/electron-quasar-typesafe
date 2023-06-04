@@ -1,7 +1,7 @@
-import { t } from '#/controllers/ipc';
-import { currentWindowResource } from '#/controllers/ipc/router/currentWindow';
-import { responseOk } from '#/controllers/ipc/router/response';
-import { store } from '#/store';
+import { t } from '#/controllers/ipc/trpc';
+import { currentWindowResource } from '#/controllers/ipc/trpc/router/currentWindow';
+import { responseOk } from '#/controllers/ipc/trpc/router/response';
+import { store } from '#/repositories/store';
 
 export const currentWindowFocusRouter = t.router({
   [`${currentWindowResource}/focus` as const]: t.procedure.mutation(

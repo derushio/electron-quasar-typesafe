@@ -1,5 +1,5 @@
-import { t } from '#/controllers/ipc';
-import { currentWindowFocusRouter } from '#/controllers/ipc/router/currentWindow/focus';
+import { t } from '#/controllers/ipc/trpc';
+import { currentWindowFocusRouter } from '#/controllers/ipc/trpc/router/currentWindow/focus';
 
 export const appTrpcRouter = t.mergeRouters(
   // currentWindow

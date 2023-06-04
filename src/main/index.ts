@@ -1,53 +1,11 @@
-import { appTrpcRouter } from '#/controllers/ipc/router';
-import { store } from '#/store';
-import { electronApp, is, optimizer } from '@electron-toolkit/utils';
-import { BrowserWindow, app, shell } from 'electron';
-import { createIPCHandler } from 'electron-trpc/main';
-import path from 'path';
-import icon from '~/resources/icon.png';
+import { MainWindow } from '#/presentations/window/MainWindow';
+import { electronApp, optimizer } from '@electron-toolkit/utils';
+import { BrowserWindow, app } from 'electron';
 
 async function createWindow(): Promise<void> {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
-    width: 900,
-    height: 670,
-    show: false,
-    autoHideMenuBar: true,
-    ...(process.platform === 'linux' ? { icon } : {}),
-    webPreferences: {
-      preload: path.join(__dirname, '../preload/index.js'),
-      sandbox: false,
-    },
-  });
-  store.mutations.setCurrentWindow(mainWindow);
-  const ipcHandler = createIPCHandler({
-    router: appTrpcRouter,
-    windows: [mainWindow],
-  });
-  store.mutations.setIpcHandler(ipcHandler);
-
-  mainWindow.on('focus', () => {
-    store.mutations.setCurrentWindow(mainWindow);
-  });
-
-  mainWindow.on('ready-to-show', () => {
-    mainWindow.show();
-  });
-
-  mainWindow.webContents.setWindowOpenHandler((details) => {
-    void shell.openExternal(details.url);
-    return { action: 'deny' };
-  });
-
-  mainWindow.webContents.openDevTools();
-
-  // HMR for renderer base on electron-vite cli.
-  // Load the remote URL for development or the local html file for production.
-  if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
-    await mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL']);
-  } else {
-    await mainWindow.loadFile(path.join(__dirname, '../renderer/index.html'));
-  }
+  const mainWindow = new MainWindow();
+  mainWindow;
 }
 
 // This method will be called when Electron has finished

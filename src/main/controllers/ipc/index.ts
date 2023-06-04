@@ -1,6 +1,10 @@
-import { initTRPC } from '@trpc/server';
-import superjson from 'superjson';
+import { appTrpcRouter } from '#/controllers/ipc/trpc/router';
+import { store } from '#/repositories/store';
+import { createIPCHandler } from 'electron-trpc/main';
 
-export const t = initTRPC.create({
-  transformer: superjson,
+export const ipcHandler = createIPCHandler({
+  router: appTrpcRouter,
+  windows: [],
 });
+store.mutations.setIpcHandler(ipcHandler);
+console.log('test------------');

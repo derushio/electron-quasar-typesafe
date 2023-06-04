@@ -1,5 +1,7 @@
 # electron-quasar-typesafe3
 
+このプロジェクトはプロトタイプなど、開発速度が最も重要とするプロジェクトに使用することを想定しているため、クリーンアーキテクチャを採用していません。
+クリーンアーキテクチャのような外殻を持ちますが、それぞれが自由に依存関係を作ります。
 An Electron application with Vue and TypeScript
 
 ## Recommended IDE Setup
