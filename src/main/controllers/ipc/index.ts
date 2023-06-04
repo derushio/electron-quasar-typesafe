@@ -7,4 +7,3 @@ export const ipcHandler = createIPCHandler({
   windows: [],
 });
 store.mutations.setIpcHandler(ipcHandler);
-console.log('test------------');
