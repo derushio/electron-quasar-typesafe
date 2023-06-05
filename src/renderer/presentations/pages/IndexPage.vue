@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { trpc } from '@/domains/trpc';
+import { trpc } from '@/repositories/trpc';
 
 async function test() {
   await new Promise((resolve) => setTimeout(resolve, 5000));
