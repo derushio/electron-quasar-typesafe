@@ -3,7 +3,7 @@ import { store } from '#/repositories/store';
 import { is } from '@electron-toolkit/utils';
 import { BrowserWindow, shell } from 'electron';
 import path from 'path';
-import icon from '~/resources/icon.png?asset';
+import icon from '~/resources/icon.png';
 
 export class MainWindow extends BrowserWindow {
   public constructor() {
