@@ -4,6 +4,7 @@
     ".eslintrc.cjs",
     "electron.vite.config.*",
     "src/main/**/*",
+    "prisma/**/*",
     "build/**/*"
   ],
   "compilerOptions": {
