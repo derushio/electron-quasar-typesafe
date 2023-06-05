@@ -36,7 +36,8 @@
     "quasar": "^2.12.0",
     "superjson": "^1.12.3",
     "vue": "^3.2.47",
-    "vue-router": "^4.2.2"
+    "vue-router": "^4.2.2",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@electron-toolkit/tsconfig": "^1.0.1",
