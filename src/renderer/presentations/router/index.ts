@@ -1,4 +1,4 @@
-import routes from '@/router/routes';
+import routes from '@/presentations/router/routes';
 import { createRouter, createWebHashHistory } from 'vue-router';
 
 export function createAppRouter() {
