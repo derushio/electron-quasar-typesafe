@@ -16,5 +16,8 @@
   },
   "[groovy]": {
     "editor.defaultFormatter": "NicolasVuillamy.vscode-groovy-lint"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   }
 }
