@@ -1,15 +1,5 @@
 {
   "extends": "@electron-toolkit/tsconfig/tsconfig.web.json",
-  "include": [
-    "src/renderer/env.d.ts",
-    "src/renderer/quasar.d.ts",
-    "src/renderer/vue.d.ts",
-    "src/renderer/**/*",
-    "src/renderer/**/*.vue",
-    "src/preload/**/*",
-    "src/main/**/*",
-    "src/common/**/*"
-  ],
   "compilerOptions": {
     "composite": true,
     "esModuleInterop": true,
