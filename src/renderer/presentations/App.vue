@@ -2,7 +2,19 @@
   <router-view></router-view>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useQueryProvider } from 'vue-query';
+
+useQueryProvider({
+  defaultOptions: {
+    queries: {
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
+</script>
 
 <style lang="scss">
 @import '~/node_modules/quasar/dist/quasar.prod.css';

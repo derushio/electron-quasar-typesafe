@@ -9,6 +9,7 @@
   ],
   "compilerOptions": {
     "composite": true,
+    "esModuleInterop": true,
     "types": ["electron-vite/node"],
     "paths": {
       "@/*": ["./src/renderer/*"],

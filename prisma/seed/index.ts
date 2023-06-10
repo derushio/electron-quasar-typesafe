@@ -1,10 +1,11 @@
 import { pc } from '#/repositories/prisma';
+import seedUsers from '%/seed/data/seedUsers';
 
 /**
- * upsertされる想定で作る
+ * upsertでseedする
  */
 async function main() {
-  // TODO:
+  await seedUsers();
 }
 
 main()

@@ -4,16 +4,16 @@ import { usersResource } from '#/controllers/ipc/trpc/router/users';
 import { pc } from '#/repositories/prisma';
 import { z } from 'zod';
 
-export const queryUsersRequestZod = z.object({
+export const QueryUsersRequestZod = z.object({
   limit: z.number().default(100),
   offset: z.number().default(0),
 });
 
-export type queryUsersRequest = z.infer<typeof queryUsersRequestZod>;
+export type QueryUsersRequest = z.infer<typeof QueryUsersRequestZod>;
 
-export const queryUsers = t.router({
+export const queryUsersRouter = t.router({
   [`${usersResource}/users` as const]: t.procedure
-    .input(queryUsersRequestZod)
+    .input(QueryUsersRequestZod)
     .query(async (req) => {
       const where = {};
 

@@ -3,5 +3,16 @@
   "references": [
     { "path": "./tsconfig.node.json" },
     { "path": "./tsconfig.web.json" }
-  ]
+  ],
+  "include": ["src/main/**/*", "prisma/**/*", "build/**/*"],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "paths": {
+      "@/*": ["./src/renderer/*"],
+      "#/*": ["./src/main/*"],
+      "$/*": ["./src/common/*"],
+      "%/*": ["./prisma/*"],
+      "~/*": ["./*"]
+    }
+  }
 }
