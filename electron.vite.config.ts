@@ -17,6 +17,11 @@ export default defineConfig({
     resolve: {
       alias: alias,
     },
+    build: {
+      watch: {
+        include: `${path.join(__dirname, 'src', 'main')}/**/*`,
+      },
+    },
   },
   preload: {
     plugins: [externalizeDepsPlugin()],
