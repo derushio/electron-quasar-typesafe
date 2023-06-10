@@ -15,11 +15,18 @@
 </template>
 
 <script setup lang="ts">
+import { useLoadingStore } from '@/repositories/stores/loadingStore';
 import { trpc } from '@/repositories/trpc';
 import { useQuery } from 'vue-query';
 
-const usersQuery = useQuery(['usersQuery'], () =>
-  trpc['/users/users'].query({}),
+const loadingStore = useLoadingStore();
+
+const usersQuery = useQuery(
+  ['usersQuery'],
+  async () =>
+    await loadingStore.actions.doLoadingAction(
+      async () => await trpc['/users/users'].query({}),
+    ),
 );
 
 async function focus() {
