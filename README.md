@@ -6,6 +6,8 @@
 
 クリーンアーキテクチャのような外殻を持ちますが、それぞれが自由に依存関係を作ります。
 
+vite + electron + vue3 + quasar + electron-trpc + prisma (SQLite)
+
 An Electron application with Vue and TypeScript
 
 ## Recommended IDE Setup
