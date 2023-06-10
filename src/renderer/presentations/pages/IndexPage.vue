@@ -15,6 +15,7 @@
 </template>
 
 <script setup lang="ts">
+import { sleep } from '$/utils/sleep';
 import { useLoadingStore } from '@/repositories/stores/loadingStore';
 import { trpc } from '@/repositories/trpc';
 import { useQuery } from 'vue-query';
@@ -30,7 +31,7 @@ const usersQuery = useQuery(
 );
 
 async function focus() {
-  await new Promise((resolve) => setTimeout(resolve, 5000));
+  await sleep(5000);
   await trpc['/currentWindow/focus'].mutate();
 }
 </script>

@@ -5,7 +5,8 @@
     "electron.vite.config.*",
     "src/main/**/*",
     "prisma/**/*",
-    "build/**/*"
+    "build/**/*",
+    "src/common/**/*"
   ],
   "compilerOptions": {
     "composite": true,

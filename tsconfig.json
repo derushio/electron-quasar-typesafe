@@ -4,7 +4,7 @@
     { "path": "./tsconfig.node.json" },
     { "path": "./tsconfig.web.json" }
   ],
-  "include": ["src/main/**/*", "prisma/**/*", "build/**/*"],
+  "include": ["src/main/**/*", "prisma/**/*", "build/**/*", "src/common/**/*"],
   "compilerOptions": {
     "esModuleInterop": true,
     "paths": {
