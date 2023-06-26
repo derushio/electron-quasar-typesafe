@@ -1,5 +1,5 @@
 import { ipcHandler } from '#/controllers/ipc';
-import { store } from '#/repositories/store';
+import { store } from '#/repositories/state';
 import { is } from '@electron-toolkit/utils';
 import { BrowserWindow, shell } from 'electron';
 import path from 'path';

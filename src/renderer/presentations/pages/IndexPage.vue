@@ -16,8 +16,8 @@
 
 <script setup lang="ts">
 import { sleep } from '$/utils/sleep';
-import { useLoadingStore } from '@/repositories/stores/loadingStore';
 import { trpc } from '@/repositories/trpc';
+import { useLoadingStore } from '@/usecases/stores/loadingStore';
 import { useQuery } from 'vue-query';
 
 const loadingStore = useLoadingStore();
