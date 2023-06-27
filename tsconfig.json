@@ -5,6 +5,7 @@
     { "path": "./tsconfig.web.json" }
   ],
   "include": [".eslintrc.cjs"],
+  "exclude": ["node_modules", "dist", "out"],
   "compilerOptions": {
     "esModuleInterop": true,
     "paths": {

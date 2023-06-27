@@ -12,7 +12,7 @@ export const QueryUsersRequestZod = z.object({
 export type QueryUsersRequest = z.infer<typeof QueryUsersRequestZod>;
 
 export const queryUsersRouter = t.router({
-  [`${usersResource}/users` as const]: t.procedure
+  [`${usersResource}` as const]: t.procedure
     .input(QueryUsersRequestZod)
     .query(async (req) => {
       const where = {};

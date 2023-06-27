@@ -11,5 +11,6 @@
       "%/*": ["./prisma/*"],
       "~/*": ["./*"]
     }
-  }
+  },
+  "exclude": ["node_modules", "dist", "out"]
 }
