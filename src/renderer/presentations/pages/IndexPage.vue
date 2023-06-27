@@ -1,5 +1,5 @@
 <template>
-  <q-page class="row items-center justify-evenly">
+  <FullPage class="row items-center justify-evenly">
     <div>
       <div class="q-mb-md">
         <q-chip
@@ -11,11 +11,12 @@
 
       <q-btn @click="focus">focus</q-btn>
     </div>
-  </q-page>
+  </FullPage>
 </template>
 
 <script setup lang="ts">
 import { sleep } from '$/utils/sleep';
+import FullPage from '@/presentations/pageTypes/FullPage.vue';
 import { trpc } from '@/repositories/trpc';
 import { useLoadingStore } from '@/usecases/stores/loadingStore';
 import { useQuery } from 'vue-query';
