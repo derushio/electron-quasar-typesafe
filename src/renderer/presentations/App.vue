@@ -21,4 +21,5 @@ useQueryProvider({
 @import '~/node_modules/@quasar/extras/material-icons/material-icons.css';
 
 @import '@/assets/styles/app.scss';
+@import '@/assets/styles/quasar-variables.scss';
 </style>
