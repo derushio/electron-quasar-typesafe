@@ -7,8 +7,9 @@
       :ratio="ratio"
       :style="{
         width: '100%',
-        height: '100%',
+        height: 'calc(100% - 2px)',
         position: 'relative',
+        transform: 'translate(0, 1px)',
         zIndex: 1,
       }"
     />
@@ -16,7 +17,6 @@
       :class="`absolute-full ${effectClass}`"
       :style="{
         zIndex: 2,
-        margin: '-1px',
         ...effectStyle as Record<string, unknown>,
       }"
     />
