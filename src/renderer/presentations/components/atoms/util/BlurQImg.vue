@@ -17,7 +17,7 @@
       :style="{
         zIndex: 2,
         margin: '-1px',
-        ...effectStyle,
+        ...effectStyle as Record<string, unknown>,
       }"
     />
   </div>
