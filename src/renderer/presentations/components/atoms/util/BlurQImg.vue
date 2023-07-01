@@ -17,18 +17,22 @@
       :style="{
         zIndex: 2,
         margin: '-1px',
+        ...effectStyle,
       }"
     />
   </div>
 </template>
 
 <script lang="ts" setup>
+import { VueStyleObjectProp } from 'quasar';
+
 const props = defineProps<{
   src?: string;
   fit?: 'fill' | 'cover' | 'contain' | 'none' | 'scale-down' | undefined;
   position?: string;
   ratio?: number;
   effectClass?: string;
+  effectStyle?: VueStyleObjectProp;
 }>();
 props;
 
