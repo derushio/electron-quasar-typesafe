@@ -1,5 +1,5 @@
 <template>
-  <q-page class="full-height column">
+  <q-page class="full-height column overflow-hidden">
     <slot />
   </q-page>
 </template>
