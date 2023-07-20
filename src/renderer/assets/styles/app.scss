@@ -15,6 +15,11 @@ h6 {
   position: absolute;
 }
 
+.text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .text-stroke {
   -webkit-text-stroke: 0.01em #000000;
 }
