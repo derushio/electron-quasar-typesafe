@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { sleep } from '$/utils/sleep';
+import { wait } from '$/utils/wait';
 import FullPage from '@/presentations/pageTypes/FullPage.vue';
 import { trpc } from '@/repositories/trpc';
 import { useLoadingStore } from '@/usecases/stores/loadingStore';
@@ -32,7 +32,8 @@ const usersQuery = useQuery(
 );
 
 async function focus() {
-  await sleep(5000);
+  await wait(5000);
   await trpc['/currentWindow/focus'].mutate();
 }
 </script>
+$/utils/wait
