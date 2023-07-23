@@ -20,6 +20,10 @@ h6 {
   white-space: nowrap;
 }
 
+.pointer-events-none {
+  pointer-events: none;
+}
+
 .text-stroke {
   -webkit-text-stroke: 0.01em #000000;
 }
