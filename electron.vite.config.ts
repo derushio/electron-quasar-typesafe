@@ -13,7 +13,7 @@ const alias = {
 
 export default defineConfig({
   main: {
-    envPrefix: 'VITE_MAIN_',
+    envPrefix: 'VITE_',
     plugins: [externalizeDepsPlugin()],
     resolve: {
       alias: alias,
@@ -25,14 +25,14 @@ export default defineConfig({
     },
   },
   preload: {
-    envPrefix: 'VITE_MAIN_',
+    envPrefix: 'VITE_',
     plugins: [externalizeDepsPlugin()],
     resolve: {
       alias: alias,
     },
   },
   renderer: {
-    envPrefix: 'VITE_',
+    envPrefix: 'VITE_RENDERER_',
     plugins: [
       vue({
         template: { transformAssetUrls },

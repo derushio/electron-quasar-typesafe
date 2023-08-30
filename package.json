@@ -22,7 +22,7 @@
     "dev": "yarn prisma:generate && electron-vite dev",
     "devs": "yarn prisma:generate && run-p dev:frontend dev:backend",
     "dev:frontend": "vite",
-    "dev:backend": "vite-node src/main/server.ts",
+    "dev:backend": "MODE=BACKEND vite-node src/main/server.ts",
     "// prisma": "",
     "prisma:migration": "prisma migrate dev && yarn prisma:generate",
     "prisma:generate": "prisma generate",

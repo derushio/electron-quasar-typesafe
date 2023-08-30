@@ -11,8 +11,10 @@ const alias = {
   '%/': `${path.join(__dirname, 'prisma')}/`,
 };
 
+const MODE = process.env.MODE === 'BACKEND';
+
 export default defineConfig({
-  envPrefix: 'VITE_',
+  envPrefix: MODE ? 'VITE_' : 'VITE_RENDERER_',
   plugins: [
     vue({
       template: { transformAssetUrls },

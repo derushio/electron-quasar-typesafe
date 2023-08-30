@@ -13,7 +13,7 @@ export const trpc = createTRPCProxyClient<AppRouter>({
     ipcLink(),
     // Server環境向け
     // httpLink({
-    //   url: `http://localhost:${Env.VITE_MAIN_BACKEND_PORT}`,
+    //   url: `http://localhost:${Env.VITE_RENDERER_BACKEND_PORT}`,
     // }),
   ],
 });
