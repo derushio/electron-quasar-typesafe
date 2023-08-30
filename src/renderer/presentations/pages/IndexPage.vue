@@ -9,7 +9,7 @@
         >
       </div>
 
-      <q-btn @click="focus">focus</q-btn>
+      <q-btn @click="log">button</q-btn>
     </div>
   </FullPage>
 </template>
@@ -18,7 +18,6 @@
 import FullPage from '@/presentations/pageTypes/FullPage.vue';
 
 import { Env } from '$/config/env';
-import { wait } from '$/utils/wait';
 import { trpc } from '@/repositories/trpc';
 import { useLoadingStore } from '@/usecases/stores/loadingStore';
 import { useQuery } from 'vue-query';
@@ -33,11 +32,8 @@ const usersQuery = useQuery(
     ),
 );
 
-console.log(Env.VITE_MAIN_ENV_EXAMPLE);
-
-async function focus() {
-  await wait(5000);
-  await trpc['/currentWindow/focus'].mutate();
+function log() {
+  console.log(Env.VITE_MAIN_ENV_EXAMPLE);
 }
 </script>
 $/utils/wait
