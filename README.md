@@ -30,7 +30,7 @@ npm install
 npm run dev
 ```
 
-#### Server & Client向け
+#### Server & Client (SPA) 向け
 
 - `/src/renderer/repositories/trpc/index.ts` のlinksをServer向けに切り替え、ipcのimportを削除してください
 
