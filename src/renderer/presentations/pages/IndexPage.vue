@@ -15,8 +15,10 @@
 </template>
 
 <script setup lang="ts">
-import { wait } from '$/utils/wait';
 import FullPage from '@/presentations/pageTypes/FullPage.vue';
+
+import { Env } from '$/config/env';
+import { wait } from '$/utils/wait';
 import { trpc } from '@/repositories/trpc';
 import { useLoadingStore } from '@/usecases/stores/loadingStore';
 import { useQuery } from 'vue-query';
@@ -30,6 +32,8 @@ const usersQuery = useQuery(
       async () => await trpc['/users'].query({}),
     ),
 );
+
+console.log(Env.VITE_MAIN_ENV_EXAMPLE);
 
 async function focus() {
   await wait(5000);
