@@ -1,4 +1,4 @@
-import { appTrpcRouter } from '#/controllers/ipc/trpc/router';
+import { appTrpcRouter } from '#/controllers/trpc/router';
 import { store } from '#/repositories/state';
 import { createIPCHandler } from 'electron-trpc/main';
 

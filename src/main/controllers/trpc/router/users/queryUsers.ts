@@ -1,6 +1,6 @@
-import { t } from '#/controllers/ipc/trpc';
-import { responseList } from '#/controllers/ipc/trpc/router/response';
-import { usersResource } from '#/controllers/ipc/trpc/router/users';
+import { t } from '#/controllers/trpc';
+import { responseList } from '#/controllers/trpc/router/response';
+import { usersResource } from '#/controllers/trpc/router/users';
 import { pc } from '#/repositories/prisma';
 import { z } from 'zod';
 
