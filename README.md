@@ -32,6 +32,8 @@ npm run dev
 
 #### Server & Client向け
 
+- `/src/renderer/repositories/trpc/index.ts` のlinksをServer向けに切り替え、ipcのimportを削除してください
+
 ```bash
 npm run devs
 ```
