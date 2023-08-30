@@ -24,8 +24,16 @@ npm install
 
 ### Development
 
+#### Electron向け
+
 ```bash
 npm run dev
+```
+
+#### Server & Client向け
+
+```bash
+npm run devs
 ```
 
 ### Build
