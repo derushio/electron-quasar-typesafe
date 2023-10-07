@@ -1,7 +1,7 @@
 import { t } from '#/controllers/trpc';
 import { responseList } from '#/controllers/trpc/router/response';
 import { usersResource } from '#/controllers/trpc/router/users';
-import { pc } from '#/repositories/prisma';
+import { kc } from '#/repositories/knex';
 import { z } from 'zod';
 
 export const QueryUsersRequestZod = z.object({
@@ -15,17 +15,10 @@ export const queryUsersRouter = t.router({
   [`${usersResource}` as const]: t.procedure
     .input(QueryUsersRequestZod)
     .query(async (req) => {
-      const where = {};
-
+      const qb = kc.from('User');
       return responseList(
-        await pc.user.findMany({
-          where,
-          take: req.input.limit,
-          skip: req.input.offset,
-        }),
-        await pc.user.count({
-          where,
-        }),
+        await qb.select().limit(req.input.limit).offset(req.input.offset),
+        await qb.count(),
       );
     }),
 });
