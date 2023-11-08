@@ -1,3 +1,4 @@
+import { DB_HOST } from '#/repositories/db/host';
 import { Env } from '$/config/env';
 import { knex } from 'knex';
 
@@ -7,7 +8,7 @@ import { knex } from 'knex';
 export const kc = knex({
   client: 'better-sqlite3',
   connection: {
-    filename: Env.VITE_DATABASE_URL,
+    filename: DB_HOST,
     // host: Env.VITE_DATABASE_HOST,
     // database: Env.VITE_DATABASE_NAME,
     // user: Env.VITE_DATABASE_USER,

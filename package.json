@@ -4,14 +4,6 @@
   "description": "An Electron application with Vue and TypeScript",
   "main": "./out/main/index.js",
   "author": "derushio",
-  "build": {
-    "extraResources": [
-      ".env",
-      "prisma/**/*",
-      "node_modules/.prisma/**/*",
-      "node_modules/@prisma/client/**/*"
-    ]
-  },
   "scripts": {
     "test": "vitest --reporter=html --outputFile=_testReports/index.html",
     "test_ui": "vitest --ui --coverage",

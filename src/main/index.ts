@@ -32,8 +32,8 @@ async function initPrisma(): Promise<void> {
   });
 
   // FIXME: なんか再起動されない
-  app.relaunch();
-  app.exit();
+  // app.relaunch();
+  // app.exit();
 }
 
 async function createWindow(): Promise<void> {
