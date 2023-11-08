@@ -4,7 +4,7 @@ import { Env } from '$/config/env';
 import { seed } from '%/seed/seed';
 import { electronApp, optimizer } from '@electron-toolkit/utils';
 import { execFile } from 'child_process';
-import { BrowserWindow, app } from 'electron';
+import { BrowserWindow, RelaunchOptions, app } from 'electron';
 import path from 'path';
 import { promisify } from 'util';
 
@@ -31,9 +31,18 @@ async function initPrisma(): Promise<void> {
     },
   });
 
-  // FIXME: なんか再起動されない
-  // app.relaunch();
-  // app.exit();
+  const options: RelaunchOptions = {
+    args: process.argv.slice(1).concat(['--relaunch']),
+    execPath: process.execPath,
+  };
+  // Fix for .AppImage
+  if (app.isPackaged && process.env.APPIMAGE) {
+    execFile(process.env.APPIMAGE, options.args);
+    app.quit();
+    return;
+  }
+  app.relaunch(options);
+  app.quit();
 }
 
 async function createWindow(): Promise<void> {
