@@ -1,5 +1,4 @@
 import { DB_HOST } from '#/repositories/db/host';
-import { Env } from '$/config/env';
 import { knex } from 'knex';
 
 /**
