@@ -4,7 +4,7 @@ import { PrismaClient } from '@prisma/client';
 export const pc = new PrismaClient({
   datasources: {
     db: {
-      url: `file:${DB_HOST}`,
+      url: DB_HOST,
     },
   },
 });

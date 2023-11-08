@@ -20,7 +20,7 @@
     "// prisma": "",
     "prisma:migration": "prisma migrate dev && yarn prisma:generate",
     "prisma:generate": "prisma generate",
-    "prisma:seed": "ts-node -r tsconfig-paths/register prisma/seed/index.ts",
+    "prisma:seed": "vite-node prisma/seed/index.ts",
     "prisma:studio": "prisma studio",
     "// build": "",
     "prebuild": "rm -rf dist; rm -rf out",
