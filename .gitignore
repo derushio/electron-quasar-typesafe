@@ -3,3 +3,6 @@ dist
 out
 *.log*
 .env
+
+_testReports
+_coverage
