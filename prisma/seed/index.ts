@@ -1,14 +1,7 @@
 import { pc } from '#/repositories/prisma';
-import seedUsers from '%/seed/data/seedUsers';
+import { seed } from '%/seed/seed';
 
-/**
- * upsertでseedする
- */
-async function main() {
-  await seedUsers();
-}
-
-main()
+seed()
   .then(async () => {
     await pc.$disconnect();
   })

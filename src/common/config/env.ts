@@ -11,4 +11,5 @@ export const Env = {
   VITE_DATABASE_PORT: import.meta.env.VITE_DATABASE_PORT ?? '',
   VITE_DATABASE_NAME: import.meta.env.VITE_DATABASE_NAME ?? '',
   VITE_DATABASE_URL: import.meta.env.VITE_DATABASE_URL ?? '',
+  VITE_BUILDED: import.meta.env.VITE_BUILDED ?? false,
 };

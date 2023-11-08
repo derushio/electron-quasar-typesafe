@@ -1,6 +1,40 @@
 import { MainWindow } from '#/presentations/window/MainWindow';
+import { DB_HOST } from '#/repositories/db/host';
+import { Env } from '$/config/env';
+import { seed } from '%/seed/seed';
 import { electronApp, optimizer } from '@electron-toolkit/utils';
+import { execFile } from 'child_process';
 import { BrowserWindow, app } from 'electron';
+import path from 'path';
+import { promisify } from 'util';
+
+async function initPrisma(): Promise<void> {
+  if (!Env.VITE_BUILDED) {
+    return;
+  }
+  const toolDir = app.getAppPath();
+
+  const prismaCli = path.join(
+    toolDir,
+    'node_modules',
+    'prisma',
+    'build',
+    'index.js',
+  );
+
+  const execFilePromise = promisify(execFile);
+  await execFilePromise(prismaCli, ['migrate', 'deploy'], {
+    cwd: app.getAppPath(),
+    env: {
+      ...process.env,
+      DATABASE_URL: `file:${DB_HOST}`,
+    },
+  });
+
+  // FIXME: なんか再起動されない
+  app.relaunch();
+  app.exit();
+}
 
 async function createWindow(): Promise<void> {
   // Create the browser window.
@@ -12,23 +46,33 @@ async function createWindow(): Promise<void> {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 void app.whenReady().then(async () => {
-  // Set app user model id for windows
-  electronApp.setAppUserModelId('com.electron');
+  try {
+    try {
+      await seed();
+    } catch {
+      await initPrisma();
+    }
 
-  // Default open or close DevTools by F12 in development
-  // and ignore CommandOrControl + R in production.
-  // see https://github.com/alex8088/electron-toolkit/tree/master/packages/utils
-  app.on('browser-window-created', (_, window) => {
-    optimizer.watchWindowShortcuts(window);
-  });
+    // Set app user model id for windows
+    electronApp.setAppUserModelId('com.electron');
 
-  await createWindow();
+    // Default open or close DevTools by F12 in development
+    // and ignore CommandOrControl + R in production.
+    // see https://github.com/alex8088/electron-toolkit/tree/master/packages/utils
+    app.on('browser-window-created', (_, window) => {
+      optimizer.watchWindowShortcuts(window);
+    });
 
-  app.on('activate', async () => {
-    // On macOS it's common to re-create a window in the app when the
-    // dock icon is clicked and there are no other windows open.
-    if (BrowserWindow.getAllWindows().length === 0) await createWindow();
-  });
+    await createWindow();
+
+    app.on('activate', async () => {
+      // On macOS it's common to re-create a window in the app when the
+      // dock icon is clicked and there are no other windows open.
+      if (BrowserWindow.getAllWindows().length === 0) await createWindow();
+    });
+  } catch (e) {
+    console.error(e);
+  }
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
