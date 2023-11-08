@@ -1,6 +1,7 @@
 import { MainWindow } from '#/presentations/window/MainWindow';
 import { DB_HOST } from '#/repositories/db/host';
 import { Env } from '$/config/env';
+import { wait } from '$/utils/wait';
 import { seed } from '%/seed/seed';
 import { electronApp, optimizer } from '@electron-toolkit/utils';
 import { execFile } from 'child_process';
@@ -35,14 +36,19 @@ async function initPrisma(): Promise<void> {
     args: process.argv.slice(1).concat(['--relaunch']),
     execPath: process.execPath,
   };
+
   // Fix for .AppImage
   if (app.isPackaged && process.env.APPIMAGE) {
     execFile(process.env.APPIMAGE, options.args);
-    app.quit();
+    void wait(1000).then(() => {
+      app.quit();
+    });
     return;
   }
   app.relaunch(options);
-  app.quit();
+  void wait(1000).then(() => {
+    app.quit();
+  });
 }
 
 async function createWindow(): Promise<void> {
