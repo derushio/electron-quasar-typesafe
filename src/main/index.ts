@@ -36,16 +36,17 @@ async function initPrisma(): Promise<void> {
     args: process.argv.slice(1).concat(['--relaunch']),
     execPath: process.execPath,
   };
+  options;
 
   // Fix for .AppImage
   if (app.isPackaged && process.env.APPIMAGE) {
-    execFile(process.env.APPIMAGE, options.args);
+    // execFile(process.env.APPIMAGE, options.args);
     void wait(1000).then(() => {
       app.quit();
     });
     return;
   }
-  app.relaunch(options);
+  // app.relaunch(options);
   void wait(1000).then(() => {
     app.quit();
   });
@@ -64,7 +65,8 @@ void app.whenReady().then(async () => {
   try {
     try {
       await seed();
-    } catch {
+    } catch (e) {
+      console.error(e);
       await initPrisma();
     }
 

@@ -20,7 +20,7 @@
     "// prisma": "",
     "prisma:migration": "prisma migrate dev && yarn prisma:generate",
     "prisma:generate": "prisma generate",
-    "prisma:seed": "vite-node prisma/seed/index.ts",
+    "prisma:seed": "MODE=BACKEND vite-node prisma/seed/index.ts",
     "prisma:studio": "prisma studio",
     "// build": "",
     "prebuild": "rm -rf dist; rm -rf out",

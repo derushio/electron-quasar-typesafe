@@ -23,7 +23,14 @@ export const config = {
     }),
   ],
   resolve: {
-    alias: alias,
+    alias: {
+      ...alias,
+      ...(MODE
+        ? {
+            electron: path.join(__dirname, 'src', 'main', 'mock', 'electron'),
+          }
+        : {}),
+    },
   },
   root: path.join(__dirname, 'src'),
   envDir: path.join(__dirname),

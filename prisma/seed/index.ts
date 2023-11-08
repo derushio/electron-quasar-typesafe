@@ -1,5 +1,8 @@
 import { pc } from '#/repositories/prisma';
 import { seed } from '%/seed/seed';
+import { configDotenv } from 'dotenv';
+
+configDotenv();
 
 seed()
   .then(async () => {
