@@ -1,19 +1,19 @@
-import { adjs } from '$/boot/dayjs';
 import { wait } from '$/utils/wait';
+import { differenceInMilliseconds } from 'date-fns';
 import _ from 'lodash';
 import { expect, test } from 'vitest';
 
 test('wait関数 精度', async () => {
   const waitMillisec = 5000;
-  const start = adjs();
+  const start = new Date();
   await wait(waitMillisec);
-  const end = adjs();
+  const end = new Date();
 
   /** 許容精度 */
   const errorRatio = waitMillisec * 0.05;
   expect(
     _.inRange(
-      end.diff(start, 'milliseconds') - waitMillisec,
+      differenceInMilliseconds(end, start) - waitMillisec,
       -errorRatio,
       errorRatio,
     ),

@@ -43,7 +43,7 @@
     "axios": "^1.6.0",
     "better-sqlite3": "^8.7.0",
     "cors": "^2.8.5",
-    "dayjs": "^1.11.10",
+    "date-fns": "^2.30.0",
     "dotenv": "^16.3.1",
     "electron-trpc": "^0.5.0",
     "knex": "^3.0.1",
