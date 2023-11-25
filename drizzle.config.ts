@@ -1,6 +1,8 @@
-import 'dotenv/config';
+import { configDotenv } from 'dotenv';
 import type { Config } from 'drizzle-kit';
 import path from 'path';
+
+configDotenv();
 
 export default {
   schema: path.join(

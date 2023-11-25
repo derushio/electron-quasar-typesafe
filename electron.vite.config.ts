@@ -8,7 +8,6 @@ const alias = {
   '@/': `${path.join(__dirname, 'src', 'renderer')}/`,
   '#/': `${path.join(__dirname, 'src', 'main')}/`,
   '$/': `${path.join(__dirname, 'src', 'common')}/`,
-  '%/': `${path.join(__dirname, 'prisma')}/`,
 };
 
 export default defineConfig({

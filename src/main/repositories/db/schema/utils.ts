@@ -7,7 +7,7 @@ import {
 } from 'drizzle-orm/sqlite-core';
 
 export function sqliteUuid() {
-  return sql`PRINTF('%s-%s-%s-%s-%s', LOWER(HEX(RANDOMBLOB(4))`;
+  return sql`PRINTF('%s-%s-%s-%s-%s', LOWER(HEX(RANDOMBLOB(4)))`;
 }
 
 export function sqliteNow() {
@@ -32,11 +32,15 @@ export function timestampIdxes<
   TColumnsMap extends
     | Record<string, SQLiteColumnBuilderBase>
     | ReturnType<typeof timestampColumns>,
->(
-  table: BuildColumns<TTableName, TColumnsMap, 'sqlite'>,
-): SQLiteTableExtraConfig {
+>(table: BuildColumns<TTableName, TColumnsMap, 'sqlite'>) {
   return {
     createdAtIdx: index('created_at_idx').on(table.createdAt),
     updatedAtIdx: index('updated_at_idx').on(table.updateAt),
+  } satisfies SQLiteTableExtraConfig;
+}
+
+export function selectCount() {
+  return {
+    count: sql<number>`cast(count(*) as UNSIGNED)`,
   };
 }

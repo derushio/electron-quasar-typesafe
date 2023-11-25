@@ -1,15 +1,23 @@
+import { configDotenv } from 'dotenv';
+
+let env: Record<string, string | undefined> = import.meta?.env ?? {};
+try {
+  configDotenv();
+  env = process.env;
+} catch {}
+
 export const Env = {
-  VITE_RENDERER_ENV_EXAMPLE: import.meta.env.VITE_RENDERER_ENV_EXAMPLE ?? '',
-  VITE_ENV_EXAMPLE: import.meta.env.VITE_ENV_EXAMPLE ?? '',
+  VITE_RENDERER_ENV_EXAMPLE: env.VITE_RENDERER_ENV_EXAMPLE ?? '',
+  VITE_ENV_EXAMPLE: env.VITE_ENV_EXAMPLE ?? '',
   VITE_RENDERER_BACKEND_PORT: parseInt(
-    import.meta.env.VITE_RENDERER_BACKEND_PORT ?? '8020',
+    env.VITE_RENDERER_BACKEND_PORT ?? '8020',
   ),
 
-  VITE_DATABASE_HOST: import.meta.env.VITE_DATABASE_HOST ?? '',
-  VITE_DATABASE_USER: import.meta.env.VITE_DATABASE_USER ?? '',
-  VITE_DATABASE_PASSWORD: import.meta.env.VITE_DATABASE_PASSWORD ?? '',
-  VITE_DATABASE_PORT: import.meta.env.VITE_DATABASE_PORT ?? '',
-  VITE_DATABASE_NAME: import.meta.env.VITE_DATABASE_NAME ?? '',
-  VITE_DATABASE_URL: import.meta.env.VITE_DATABASE_URL ?? '',
-  VITE_BUILDED: import.meta.env.VITE_BUILDED ?? false,
+  VITE_DATABASE_HOST: env.VITE_DATABASE_HOST ?? '',
+  VITE_DATABASE_USER: env.VITE_DATABASE_HOST ?? '',
+  VITE_DATABASE_PASSWORD: env.VITE_DATABASE_PASSWORD ?? '',
+  VITE_DATABASE_PORT: env.VITE_DATABASE_PORT ?? '',
+  VITE_DATABASE_NAME: env.VITE_DATABASE_NAME ?? '',
+  VITE_DATABASE_URL: env.VITE_DATABASE_URL ?? '',
+  VITE_BUILDED: (env.VITE_DATABASE_URL ?? 'false') === 'true',
 };

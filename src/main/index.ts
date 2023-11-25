@@ -2,7 +2,7 @@ import { MainWindow } from '#/presentations/window/MainWindow';
 import { DB_HOST } from '#/repositories/db/host';
 import { Env } from '$/config/env';
 import { wait } from '$/utils/wait';
-import { seed } from '%/seed/seed';
+import { seed } from '#/repositories/db/seed/seed';
 import { electronApp, optimizer } from '@electron-toolkit/utils';
 import { execFile } from 'child_process';
 import { BrowserWindow, RelaunchOptions, app } from 'electron';
