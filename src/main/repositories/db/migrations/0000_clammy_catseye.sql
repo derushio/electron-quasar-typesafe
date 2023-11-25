@@ -1,5 +1,14 @@
 CREATE TABLE `users` (
-	`id` text PRIMARY KEY DEFAULT (PRINTF('%s-%s-%s-%s-%s', LOWER(HEX(RANDOMBLOB(4))))) NOT NULL,
+	`id` text PRIMARY KEY DEFAULT (
+    PRINTF(
+      '%s-%s-%s-%s-%s',
+      LOWER(HEX(RANDOMBLOB(4))),
+      LOWER(HEX(RANDOMBLOB(2))),
+      LOWER(HEX(RANDOMBLOB(2))),
+      LOWER(HEX(RANDOMBLOB(2))),
+      LOWER(HEX(RANDOMBLOB(6)))
+    )
+  ) NOT NULL,
 	`name` text,
 	`created_at` text DEFAULT (DATETIME('now', 'localtime')) NOT NULL,
 	`updated_at` text DEFAULT (DATETIME('now', 'localtime')) NOT NULL

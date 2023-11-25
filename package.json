@@ -24,15 +24,16 @@
     "drizzle:drop": "pnpm run prepare:backend && tsx ./node_modules/drizzle-kit/bin.cjs drop",
     "drizzle:migrate": "pnpm run prepare:backend && tsx ./src/main/repositories/db/utils/migrate.ts",
     "drizzle:seed": "pnpm run prepare:backend && tsx ./src/main/repositories/db/seed/index.ts",
+    "drizzle:studio": "pnpm run prepare:backend && tsx ./node_modules/drizzle-kit/bin.cjs studio",
     "// build": "",
     "env:build": "cp .env .env.stash && cp .env.build .env",
     "env:restore": "cp .env.stash .env",
     "prebuild": "pnpm run env:build && rm -rf dist; rm -rf out",
     "build:code": "pnpm run prepare:electron && pnpm run prebuild && pnpm run typecheck && electron-vite build",
     "postinstall": "",
-    "package:win": "pnpm run build:code && electron-builder --win --config",
-    "package:mac": "pnpm run build:code && electron-builder --mac --config",
-    "package:linux": "pnpm run build:code && electron-builder --linux --config"
+    "package:win": "pnpm run build:code && electron-builder --win --config && pnpm run env:restore",
+    "package:mac": "pnpm run build:code && electron-builder --mac --config && pnpm run env:restore",
+    "package:linux": "pnpm run build:code && electron-builder --linux --config && pnpm run env:restore"
   },
   "dependencies": {
     "@electron-toolkit/preload": "^1.0.3",
