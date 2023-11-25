@@ -1,13 +1,1 @@
-{
-  "version": "5",
-  "dialect": "sqlite",
-  "entries": [
-    {
-      "idx": 0,
-      "version": "5",
-      "when": 1700917033602,
-      "tag": "0000_thin_mulholland_black",
-      "breakpoints": true
-    }
-  ]
-}
+{"version":"5","dialect":"sqlite","entries":[]}

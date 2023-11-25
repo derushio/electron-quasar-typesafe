@@ -7,7 +7,7 @@ import {
 } from 'drizzle-orm/sqlite-core';
 
 export function sqliteUuid() {
-  return sql`PRINTF('%s-%s-%s-%s-%s', LOWER(HEX(RANDOMBLOB(4)))`;
+  return sql`PRINTF('%s-%s-%s-%s-%s', LOWER(HEX(RANDOMBLOB(4))))`;
 }
 
 export function sqliteNow() {

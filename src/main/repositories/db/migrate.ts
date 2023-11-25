@@ -1,8 +1,19 @@
 import { dz } from '#/repositories/db';
-import { migrate } from 'drizzle-orm/mysql2/migrator';
+import { sl3con } from '#/repositories/db/db';
+import { migrate } from 'drizzle-orm/better-sqlite3/migrator';
+import path from 'path';
 
 // This will run migrations on the database, skipping the ones already applied
-await migrate(dz, { migrationsFolder: './drizzle' });
+migrate(dz, {
+  migrationsFolder: path.join(
+    '.',
+    'src',
+    'main',
+    'repositories',
+    'db',
+    'migrations',
+  ),
+});
 
 // Don't forget to close the connection, otherwise the script will hang
-await connection.end();
+sl3con.close();
