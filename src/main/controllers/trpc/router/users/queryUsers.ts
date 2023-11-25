@@ -1,9 +1,10 @@
 import { t } from '#/controllers/trpc';
 import { responseList } from '#/controllers/trpc/router/response';
 import { usersResource } from '#/controllers/trpc/router/users';
-import { kc } from '#/repositories/knex';
-import { getCountNumber } from '#/repositories/knex/getCountNumber';
-import { User } from '@prisma/client';
+import { dz } from '#/repositories/db';
+import { usersTable } from '#/repositories/db/schema';
+import { selectCount } from '#/repositories/db/schema/utils';
+import { SQLiteSelectBuilder, SelectedFields } from 'drizzle-orm/sqlite-core';
 import { z } from 'zod';
 
 export const QueryUsersRequestZod = z.object({
@@ -17,11 +18,19 @@ export const queryUsersRouter = t.router({
   [`${usersResource}` as const]: t.procedure
     .input(QueryUsersRequestZod)
     .query(async (req) => {
-      const qb = kc.from('User').select();
-      const results = (await qb
-        .limit(req.input.limit)
-        .offset(req.input.offset)) as User[];
+      function usersQuery<
+        T extends SelectedFields | undefined,
+        U extends 'async' | 'sync',
+        V,
+      >(select: SQLiteSelectBuilder<T, U, V>) {
+        return select.from(usersTable);
+      }
 
-      return responseList(results, getCountNumber(await qb.count()));
+      const users = await usersQuery(dz.select())
+        .limit(req.input.limit)
+        .offset(req.input.offset);
+      const count = await usersQuery(dz.select(selectCount()));
+
+      return responseList(users, count[0].count);
     }),
 });

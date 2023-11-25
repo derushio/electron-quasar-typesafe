@@ -1,4 +1,6 @@
 export const Env = {
+  VITE_BUILDED: (import.meta.env.VITE_BUILDED ?? 'false') === 'true',
+
   VITE_RENDERER_ENV_EXAMPLE: import.meta.env.VITE_RENDERER_ENV_EXAMPLE ?? '',
   VITE_ENV_EXAMPLE: import.meta.env.VITE_ENV_EXAMPLE ?? '',
   VITE_RENDERER_BACKEND_PORT: parseInt(
@@ -11,5 +13,4 @@ export const Env = {
   VITE_DATABASE_PORT: import.meta.env.VITE_DATABASE_PORT ?? '',
   VITE_DATABASE_NAME: import.meta.env.VITE_DATABASE_NAME ?? '',
   VITE_DATABASE_URL: import.meta.env.VITE_DATABASE_URL ?? '',
-  VITE_BUILDED: import.meta.env.VITE_BUILDED ?? false,
 };

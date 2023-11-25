@@ -1,56 +1,9 @@
 import { MainWindow } from '#/presentations/window/MainWindow';
-import { DB_HOST } from '#/repositories/db/host';
-import { Env } from '$/config/env';
-import { wait } from '$/utils/wait';
-import { seed } from '%/seed/seed';
+import { seed } from '#/repositories/db/seed/seed';
 import { electronApp, optimizer } from '@electron-toolkit/utils';
-import { execFile } from 'child_process';
-import { BrowserWindow, RelaunchOptions, app } from 'electron';
-import path from 'path';
-import { promisify } from 'util';
 
-async function initPrisma(): Promise<void> {
-  if (!Env.VITE_BUILDED) {
-    return;
-  }
-  const toolDir = app.getAppPath();
-
-  const prismaCli = path.join(
-    toolDir,
-    'node_modules',
-    'prisma',
-    'build',
-    'index.js',
-  );
-
-  const execFilePromise = promisify(execFile);
-  await execFilePromise(prismaCli, ['migrate', 'deploy'], {
-    cwd: app.getAppPath(),
-    env: {
-      ...process.env,
-      DATABASE_URL: `file:${DB_HOST}`,
-    },
-  });
-
-  const options: RelaunchOptions = {
-    args: process.argv.slice(1).concat(['--relaunch']),
-    execPath: process.execPath,
-  };
-
-  // FIXME: うまく行かなすぎると無限再起動かかるので治す
-  // Fix for .AppImage
-  if (app.isPackaged && process.env.APPIMAGE) {
-    execFile(process.env.APPIMAGE, options.args);
-    void wait(1000).then(() => {
-      app.quit();
-    });
-    return;
-  }
-  app.relaunch(options);
-  void wait(1000).then(() => {
-    app.quit();
-  });
-}
+import { BrowserWindow, app } from 'electron';
+import { migrate } from '#/repositories/db/utils/migration';
 
 async function createWindow(): Promise<void> {
   // Create the browser window.
@@ -63,12 +16,8 @@ async function createWindow(): Promise<void> {
 // Some APIs can only be used after this event occurs.
 void app.whenReady().then(async () => {
   try {
-    try {
-      await seed();
-    } catch (e) {
-      console.error(e);
-      await initPrisma();
-    }
+    await migrate();
+    await seed();
 
     // Set app user model id for windows
     electronApp.setAppUserModelId('com.electron');
