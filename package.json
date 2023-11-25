@@ -22,7 +22,7 @@
     "drizzle:init": "pnpm run prepare:backend &&  tsx ./src/main/repositories/db/index.ts",
     "drizzle:generate": "pnpm run prepare:backend && tsx ./node_modules/drizzle-kit/bin.cjs generate:sqlite",
     "drizzle:drop": "pnpm run prepare:backend && tsx ./node_modules/drizzle-kit/bin.cjs drop",
-    "drizzle:migrate": "pnpm run prepare:backend && tsx ./src/main/repositories/db/migrate.ts",
+    "drizzle:migrate": "pnpm run prepare:backend && tsx ./src/main/repositories/db/utils/migrate.ts",
     "drizzle:seed": "pnpm run prepare:backend && tsx ./src/main/repositories/db/seed/index.ts",
     "// build": "",
     "env:build": "cp .env .env.stash && cp .env.build .env",
