@@ -12,7 +12,7 @@ export const usersTable = sqliteTable(
   'users',
   {
     ...idColumns(),
-    name: text('name'),
+    name: text('name').unique(),
     ...timestampColumns(),
   },
   (users) => ({

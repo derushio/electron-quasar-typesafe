@@ -28,7 +28,7 @@ export const queryUsersRouter = t.router({
 
       const users = await usersQuery(dz.select())
         .limit(req.input.limit)
-        .offset(req.input.limit);
+        .offset(req.input.offset);
       const count = await usersQuery(dz.select(selectCount()));
 
       return responseList(users, count[0].count);

@@ -7,11 +7,11 @@ import {
 } from 'drizzle-orm/sqlite-core';
 
 export function sqliteUuid() {
-  return sql`PRINTF('%s-%s-%s-%s-%s', LOWER(HEX(RANDOMBLOB(4))))`;
+  return sql`(PRINTF('%s-%s-%s-%s-%s', LOWER(HEX(RANDOMBLOB(4)))))`;
 }
 
 export function sqliteNow() {
-  return sql`DATETIME('now', 'localtime')`;
+  return sql`(DATETIME('now', 'localtime'))`;
 }
 
 export function idColumns(): Record<string, SQLiteColumnBuilderBase> {
@@ -23,7 +23,7 @@ export function idColumns(): Record<string, SQLiteColumnBuilderBase> {
 export function timestampColumns() {
   return {
     createdAt: text('created_at').notNull().default(sqliteNow()),
-    updateAt: text('created_at').notNull().default(sqliteNow()),
+    updateAt: text('updated_at').notNull().default(sqliteNow()),
   } satisfies Record<string, SQLiteColumnBuilderBase>;
 }
 
