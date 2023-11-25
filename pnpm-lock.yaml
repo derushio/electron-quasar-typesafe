@@ -47,6 +47,9 @@ dependencies:
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
+  mkdirp:
+    specifier: ^3.0.1
+    version: 3.0.1
   p-queue:
     specifier: ^7.4.1
     version: 7.4.1
@@ -7832,6 +7835,12 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
     dev: true
+
+  /mkdirp@3.0.1:
+    resolution: {integrity: sha512-+NsyUUAZDmo6YVHzL/stxSu3t9YS1iljliy3BSDrXJ/dkn1KYdmtZODGGjLcc9XLgVVpH4KshHB8XmZgMhaBXg==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dev: false
 
   /mlly@1.4.2:
     resolution: {integrity: sha512-i/Ykufi2t1EZ6NaPLdfnZk2AX8cs0d+mTzVKuPfqPKPatxLApaBoxJQ9x1/uckXtrS/U5oisPMDkNs0yQTaBRg==}

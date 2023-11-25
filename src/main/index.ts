@@ -16,7 +16,7 @@ async function createWindow(): Promise<void> {
 // Some APIs can only be used after this event occurs.
 void app.whenReady().then(async () => {
   try {
-    migrate();
+    await migrate();
     await seed();
 
     // Set app user model id for windows
