@@ -2,6 +2,7 @@
   "name": "electron-quasar-typesafe",
   "version": "3.0.0",
   "description": "An Electron application with Vue and TypeScript",
+  "homepage": "https://example.com",
   "main": "./out/main/index.js",
   "author": "derushio",
   "scripts": {
