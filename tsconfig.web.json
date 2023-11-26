@@ -1,6 +1,7 @@
 {
   "extends": "@electron-toolkit/tsconfig/tsconfig.web.json",
   "compilerOptions": {
+    "target": "ESNext",
     "composite": true,
     "esModuleInterop": true,
     "baseUrl": ".",
