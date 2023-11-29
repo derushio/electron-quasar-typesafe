@@ -20,6 +20,10 @@ An Electron application with Vue and TypeScript
 pnpm install
 ```
 
+```bash
+cp .env.example .env
+```
+
 ### Development
 
 #### Electron向け
