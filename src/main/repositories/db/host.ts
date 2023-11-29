@@ -1,4 +1,4 @@
-import { Env } from '$/config/env';
+import { Env } from '^/config/env';
 import { app } from 'electron';
 import path from 'path';
 

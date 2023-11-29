@@ -8,11 +8,11 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "path-autocomplete.pathMappings": {
-    "@/": "${folder}/src/renderer/",
+    "$/": "${folder}/src/renderer/",
     "#/": "${folder}/src/main/",
-    "$/": "${folder}/src/common/",
+    "^/": "${folder}/src/common/",
     "%/": "${folder}/prisma/",
-    "~/": "${folder}/"
+    "&/": "${folder}/"
   },
   "[groovy]": {
     "editor.defaultFormatter": "NicolasVuillamy.vscode-groovy-lint"

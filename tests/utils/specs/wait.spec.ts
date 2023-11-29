@@ -1,4 +1,4 @@
-import { wait } from '$/utils/wait';
+import { wait } from '^/utils/wait';
 import { differenceInMilliseconds } from 'date-fns';
 import _ from 'lodash';
 import { expect, test } from 'vitest';

@@ -1,4 +1,4 @@
-import DrawerItemVue from '@/presentations/components/atoms/drawer/DrawerItem.vue';
+import DrawerItemVue from '$/presentations/components/atoms/drawer/DrawerItem.vue';
 
 import { mount } from '@vue/test-utils';
 import { expect, test } from 'vitest';

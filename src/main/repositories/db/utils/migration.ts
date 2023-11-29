@@ -1,7 +1,7 @@
 import { dz } from '#/repositories/db';
 import path from 'path';
 import { migrate as migrateSQLite3 } from 'drizzle-orm/better-sqlite3/migrator';
-import { Env } from '$/config/env';
+import { Env } from '^/config/env';
 import { app } from 'electron';
 
 const paths = ['src', 'main', 'repositories', 'db', 'migrations'];

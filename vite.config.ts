@@ -4,10 +4,10 @@ import path from 'path';
 import { UserConfig, defineConfig } from 'vite';
 
 const alias = {
-  '~/': `${path.join(__dirname)}/`,
-  '@/': `${path.join(__dirname, 'src', 'renderer')}/`,
+  '&/': `${path.join(__dirname)}/`,
+  '$/': `${path.join(__dirname, 'src', 'renderer')}/`,
   '#/': `${path.join(__dirname, 'src', 'main')}/`,
-  '$/': `${path.join(__dirname, 'src', 'common')}/`,
+  '^/': `${path.join(__dirname, 'src', 'common')}/`,
 };
 
 const MODE = process.env.MODE === 'BACKEND';

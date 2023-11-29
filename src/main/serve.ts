@@ -1,5 +1,5 @@
 import { createTrpcServer } from '#/controllers/trpc/server';
-import { Env } from '$/config/env';
+import { Env } from '^/config/env';
 
 export async function serve() {
   const server = createTrpcServer();
