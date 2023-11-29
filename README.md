@@ -2,11 +2,7 @@
 
 型定義を適当にして開発したとしても、いい感じに型推測でtypesafeになることを目指しています。
 
-このプロジェクトはプロトタイプなど、開発速度が最も重要とするプロジェクトに使用することを想定しているため、クリーンアーキテクチャを採用していません。
-
-クリーンアーキテクチャのような外殻を持ちますが、それぞれが自由に依存関係を作ります。
-
-vite + electron + vue3 + quasar + electron-trpc + prisma (SQLite)
+vite + electron + vue3 + quasar + electron-trpc + drizzle (SQLite)
 
 An Electron application with Vue and TypeScript
 
