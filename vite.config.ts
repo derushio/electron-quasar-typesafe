@@ -10,9 +10,10 @@ const alias = {
   '^/': `${path.join(__dirname, 'src', 'common')}/`,
 };
 
-const MODE = process.env.MODE === 'BACKEND';
+const MODE: 'FRONTEND' | 'BACKEND' | 'TEST' = (process.env.MODE ??
+  'FRONTEND') as 'FRONTEND' | 'BACKEND' | 'TEST';
 export const config = {
-  envPrefix: MODE ? 'VITE_' : 'VITE_RENDERER_',
+  envPrefix: ['BACKEND', 'TEST'].includes(MODE) ? 'VITE_' : 'VITE_RENDERER_',
   plugins: [
     vue({
       template: { transformAssetUrls },
@@ -24,15 +25,25 @@ export const config = {
   resolve: {
     alias: {
       ...alias,
-      ...(MODE
+      ...(['BACKEND', 'TEST'].includes(MODE)
         ? {
             electron: path.join(__dirname, 'src', 'main', 'mock', 'electron'),
           }
         : {}),
     },
   },
-  root: path.join(__dirname, 'src'),
+  root:
+    MODE === 'FRONTEND'
+      ? path.join(__dirname, 'src', 'renderer')
+      : path.join(__dirname, 'src'),
   envDir: path.join(__dirname),
+  build: {
+    rollupOptions: {
+      input: {
+        index: path.join(__dirname, 'src', 'renderer', 'index.html'),
+      },
+    },
+  },
   test: {
     environment: 'happy-dom',
     setupFiles: [path.join(__dirname, 'tests', 'renderer.setup.ts')],

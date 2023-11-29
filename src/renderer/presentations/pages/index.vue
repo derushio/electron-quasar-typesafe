@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <FullPage class="row items-center justify-evenly">
     <div>
