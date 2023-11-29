@@ -37,7 +37,14 @@ export default defineConfig({
         template: { transformAssetUrls },
       }),
       quasar({
-        sassVariables: './src/renderer/assets/styles/quasar-variables.scss',
+        sassVariables: path.join(
+          __dirname,
+          'src',
+          'renderer',
+          'assets',
+          'styles',
+          'quasar-variables.scss',
+        ),
       }),
     ],
     resolve: {

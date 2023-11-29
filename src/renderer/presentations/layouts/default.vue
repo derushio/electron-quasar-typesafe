@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
