@@ -19,7 +19,7 @@ An Electron application with Vue and TypeScript
 ### Install
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### Development
@@ -27,15 +27,19 @@ npm install
 #### Electron向け
 
 ```bash
-npm run dev
+pnpm electron:dev
 ```
 
 #### Server & Client (SPA) 向け
 
-- `/src/renderer/repositories/trpc/index.ts` のlinksをServer向けに切り替え、ipcのimportを削除してください
+```bash
+pnpm spa:dev
+```
+
+#### Server & Client (SSR) 向け
 
 ```bash
-npm run devs
+pnpm ssr:dev
 ```
 
 ### Build
