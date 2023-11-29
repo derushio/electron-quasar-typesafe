@@ -11,10 +11,10 @@
     "composite": true,
     "esModuleInterop": true,
     "paths": {
-      "@/*": ["./src/renderer/*"],
+      "$/*": ["./src/renderer/*"],
       "#/*": ["./src/main/*"],
-      "$/*": ["./src/common/*"],
-      "~/*": ["./*"]
+      "^/*": ["./src/common/*"],
+      "&/*": ["./*"]
     }
   }
 }

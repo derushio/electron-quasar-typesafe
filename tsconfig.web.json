@@ -6,10 +6,10 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/renderer/*"],
+      "$/*": ["./src/renderer/*"],
       "#/*": ["./src/main/*"],
-      "$/*": ["./src/common/*"],
-      "~/*": ["./*"]
+      "^/*": ["./src/common/*"],
+      "&/*": ["./*"]
     }
   },
   "exclude": ["node_modules", "dist", "out"]

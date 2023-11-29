@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
@@ -36,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import EssentialLink from '@/presentations/components/EssentialLink.vue';
+import EssentialLink from '$/presentations/components/EssentialLink.vue';
 
 import { ref } from 'vue';
 

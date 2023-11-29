@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <FullPage class="row items-center justify-evenly">
     <div>
@@ -15,11 +16,11 @@
 </template>
 
 <script setup lang="ts">
-import FullPage from '@/presentations/pageTypes/FullPage.vue';
+import FullPage from '$/presentations/pageTypes/FullPage.vue';
 
-import { Env } from '$/config/env';
-import { trpc } from '@/repositories/trpc';
-import { useLoadingStore } from '@/usecases/stores/loadingStore';
+import { Env } from '^/config/env';
+import { trpc } from '$/repositories/trpc';
+import { useLoadingStore } from '$/usecases/stores/loadingStore';
 import { useQuery } from 'vue-query';
 
 const loadingStore = useLoadingStore();
@@ -37,4 +38,4 @@ function log() {
   console.log(Env.VITE_RENDERER_ENV_EXAMPLE);
 }
 </script>
-$/utils/wait
+^/utils/wait

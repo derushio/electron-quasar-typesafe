@@ -2,6 +2,8 @@ node_modules
 dist
 out
 *.log*
+.nuxt
+
 .env
 .env.stash
 

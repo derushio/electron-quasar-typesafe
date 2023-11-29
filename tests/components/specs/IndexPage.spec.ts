@@ -1,4 +1,4 @@
-import IndexPageVue from '@/presentations/pages/IndexPage.vue';
+import IndexPageVue from '$/presentations/pages/IndexPage.vue';
 
 import { shallowMount } from '@vue/test-utils';
 import { createPinia, setActivePinia } from 'pinia';

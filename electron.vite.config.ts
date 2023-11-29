@@ -4,10 +4,10 @@ import { defineConfig, externalizeDepsPlugin } from 'electron-vite';
 import path from 'path';
 
 const alias = {
-  '~/': `${path.join(__dirname)}/`,
-  '@/': `${path.join(__dirname, 'src', 'renderer')}/`,
+  '&/': `${path.join(__dirname)}/`,
+  '$/': `${path.join(__dirname, 'src', 'renderer')}/`,
   '#/': `${path.join(__dirname, 'src', 'main')}/`,
-  '$/': `${path.join(__dirname, 'src', 'common')}/`,
+  '^/': `${path.join(__dirname, 'src', 'common')}/`,
 };
 
 export default defineConfig({
@@ -37,7 +37,14 @@ export default defineConfig({
         template: { transformAssetUrls },
       }),
       quasar({
-        sassVariables: './src/renderer/assets/styles/quasar-variables.scss',
+        sassVariables: path.join(
+          __dirname,
+          'src',
+          'renderer',
+          'assets',
+          'styles',
+          'quasar-variables.scss',
+        ),
       }),
     ],
     resolve: {
