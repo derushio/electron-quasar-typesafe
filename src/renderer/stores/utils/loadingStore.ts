@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 import { useQuasar } from 'quasar';
+import { v4 as UUIDv4 } from 'uuid';
 
 export const useLoadingStore = defineStore('loading', () => {
   const q = useQuasar();
@@ -14,12 +15,13 @@ export const useLoadingStore = defineStore('loading', () => {
       q.loading.hide(key);
     },
     async doLoadingAction<T>(fn: () => T) {
+      const key = UUIDv4();
       try {
-        actions.show();
+        actions.show(key);
         // eslint-disable-next-line @typescript-eslint/await-thenable
         return await fn();
       } finally {
-        actions.hide();
+        actions.hide(key);
       }
     },
   };
