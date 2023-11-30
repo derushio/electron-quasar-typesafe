@@ -18,9 +18,9 @@
 <script setup lang="ts">
 import FullPage from '$/presentations/pageTypes/FullPage.vue';
 
+import { trpc } from '$/infrastructures/trpc';
+import { useLoadingStore } from '$/stores/utils/loadingStore';
 import { Env } from '^/config/env';
-import { trpc } from '$/repositories/trpc';
-import { useLoadingStore } from '$/usecases/stores/loadingStore';
 import { useQuery } from 'vue-query';
 
 const loadingStore = useLoadingStore();

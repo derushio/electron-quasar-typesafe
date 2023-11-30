@@ -44,18 +44,21 @@ export const config = {
       },
     },
   },
-  test: {
-    environment: 'happy-dom',
-    setupFiles: [path.join(__dirname, 'tests', 'renderer.setup.ts')],
-    include: [path.join(__dirname, 'tests/**/*.spec.ts')],
-    exclude: [],
-    coverage: {
-      provider: 'v8',
-      all: true,
-      clean: true,
-      reportsDirectory: './_coverage',
+  ...({
+    test: {
+      environment: 'happy-dom',
+      setupFiles: [path.join(__dirname, 'tests', 'renderer.setup.ts')],
+      include: [path.join(__dirname, 'tests/**/*.spec.ts')],
+      exclude: [],
+      coverage: {
+        provider: 'v8',
+        all: true,
+        clean: true,
+        reportsDirectory: './_coverage',
+      },
     },
-  },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } as any),
 } satisfies UserConfig;
 
 export default defineConfig(config);
