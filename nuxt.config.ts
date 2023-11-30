@@ -25,6 +25,18 @@ const config = defineNuxtConfig({
       plugins: ['Dialog', 'Loading', 'Notify'],
     },
 
+    vueQuery: {
+      queryClientConfig: {
+        defaultOptions: {
+          queries: {
+            refetchOnMount: false,
+            refetchOnReconnect: false,
+            refetchOnWindowFocus: false,
+          },
+        },
+      },
+    },
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } as any),
 });
