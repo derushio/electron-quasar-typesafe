@@ -11,7 +11,7 @@ const alias = {
 const config = defineNuxtConfig({
   alias: alias,
   rootDir: path.join(__dirname, 'src', 'renderer', 'presentations'),
-  modules: ['@pinia/nuxt', 'nuxt-quasar-ui'],
+  modules: ['@pinia/nuxt', 'nuxt-quasar-ui', '@hebilicious/vue-query-nuxt'],
   ...({
     quasar: {
       sassVariables: path.join(

@@ -3,19 +3,7 @@
   <NuxtLayout />
 </template>
 
-<script setup lang="ts">
-import { useQueryProvider } from 'vue-query';
-
-useQueryProvider({
-  defaultOptions: {
-    queries: {
-      refetchOnMount: false,
-      refetchOnReconnect: false,
-      refetchOnWindowFocus: false,
-    },
-  },
-});
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss">
 @import '&/node_modules/quasar/dist/quasar.prod.css';

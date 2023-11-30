@@ -20,18 +20,18 @@ import FullPage from '$/presentations/pageTypes/FullPage.vue';
 
 import { trpc } from '$/infrastructures/trpc';
 import { useLoadingStore } from '$/stores/utils/loadingStore';
+import { useQuery } from '@tanstack/vue-query';
 import { Env } from '^/config/env';
-import { useQuery } from 'vue-query';
 
 const loadingStore = useLoadingStore();
 
-const usersQuery = useQuery(
-  ['usersQuery'],
-  async () =>
+const usersQuery = useQuery({
+  queryKey: ['usersQuery'],
+  queryFn: async () =>
     await loadingStore.actions.doLoadingAction(
       async () => await trpc['/users'].query({}),
     ),
-);
+});
 
 function log() {
   console.log(Env.VITE_ENV_EXAMPLE);
