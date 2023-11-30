@@ -27,7 +27,7 @@ export const config = {
       ...alias,
       ...(['BACKEND', 'TEST'].includes(MODE)
         ? {
-            electron: path.join(__dirname, 'src', 'main', 'mock', 'electron'),
+            electron: path.join(__dirname, 'src', 'main', 'mocks', 'electron'),
           }
         : {}),
     },
