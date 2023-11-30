@@ -1,5 +1,5 @@
 import { appTrpcRouter } from '#/controllers/trpc/router';
-import { store } from '#/infrastructures/state';
+import { store } from '#/repositories/state';
 import { createIPCHandler } from 'electron-trpc/main';
 
 export const ipcHandler = createIPCHandler({
