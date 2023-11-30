@@ -1,10 +1,10 @@
-import { dz } from '#/repositories/db';
-import path from 'path';
-import { migrate as migrateSQLite3 } from 'drizzle-orm/better-sqlite3/migrator';
+import { dz } from '#/infrastructures/db';
 import { Env } from '^/config/env';
+import { migrate as migrateSQLite3 } from 'drizzle-orm/better-sqlite3/migrator';
 import { app } from 'electron';
+import path from 'path';
 
-const paths = ['src', 'main', 'repositories', 'db', 'migrations'];
+const paths = ['src', 'main', 'infrastructures', 'db', 'migrations'];
 
 export async function migrate() {
   const migrationsPath = Env.VITE_BUILDED

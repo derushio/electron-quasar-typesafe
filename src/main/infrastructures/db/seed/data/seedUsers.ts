@@ -1,6 +1,6 @@
-import { dz } from '#/repositories/db';
-import { usersTable } from '#/repositories/db/schema';
-import { separate } from '#/repositories/db/seed/separator';
+import { dz } from '#/infrastructures/db';
+import { usersTable } from '#/infrastructures/db/schema';
+import { separate } from '#/infrastructures/db/seed/separator';
 
 export const testUser = {
   name: 'test',

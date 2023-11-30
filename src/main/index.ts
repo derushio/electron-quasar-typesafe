@@ -1,9 +1,8 @@
+import { seed } from '#/infrastructures/db/seed/seed';
+import { migrate } from '#/infrastructures/db/utils/migration';
 import { MainWindow } from '#/presentations/window/MainWindow';
-import { seed } from '#/repositories/db/seed/seed';
 import { electronApp, optimizer } from '@electron-toolkit/utils';
-
 import { BrowserWindow, app } from 'electron';
-import { migrate } from '#/repositories/db/utils/migration';
 
 async function createWindow(): Promise<void> {
   // Create the browser window.

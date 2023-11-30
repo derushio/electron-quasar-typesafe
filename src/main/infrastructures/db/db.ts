@@ -1,4 +1,4 @@
-import { DB_HOST } from '#/repositories/db/host';
+import { DB_HOST } from '#/infrastructures/db/host';
 import BetterSqlite3 from 'better-sqlite3';
 import { mkdirpSync } from 'mkdirp';
 import path from 'path';

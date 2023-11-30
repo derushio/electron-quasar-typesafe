@@ -9,12 +9,19 @@ export default {
     __dirname,
     'src',
     'main',
-    'repositories',
+    'infrastructures',
     'db',
     'schema',
     'index.ts',
   ),
-  out: path.join(__dirname, 'src', 'main', 'repositories', 'db', 'migrations'),
+  out: path.join(
+    __dirname,
+    'src',
+    'main',
+    'infrastructures',
+    'db',
+    'migrations',
+  ),
   driver: 'better-sqlite', // 'pg' | 'mysql2' | 'better-sqlite' | 'libsql' | 'turso'
   dbCredentials: {
     url: path.join(

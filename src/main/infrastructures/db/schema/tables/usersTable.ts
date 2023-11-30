@@ -2,7 +2,7 @@ import {
   idColumns,
   timestampColumns,
   timestampIdxes,
-} from '#/repositories/db/schema/utils';
+} from '#/infrastructures/db/schema/utils';
 import { index, sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
 /**

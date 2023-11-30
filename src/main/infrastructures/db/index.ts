@@ -1,5 +1,5 @@
-import { sl3con } from '#/repositories/db/db';
-import * as schema from '#/repositories/db/schema';
+import { sl3con } from '#/infrastructures/db/db';
+import * as schema from '#/infrastructures/db/schema';
 import { drizzle } from 'drizzle-orm/better-sqlite3';
 
 /**

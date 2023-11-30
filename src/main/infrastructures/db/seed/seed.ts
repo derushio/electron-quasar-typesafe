@@ -1,4 +1,4 @@
-import seedUsers from '#/repositories/db/seed/data/seedUsers';
+import seedUsers from '#/infrastructures/db/seed/data/seedUsers';
 
 /**
  * upsertでseedする

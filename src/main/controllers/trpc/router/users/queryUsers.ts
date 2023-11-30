@@ -1,9 +1,9 @@
 import { t } from '#/controllers/trpc';
 import { responseList } from '#/controllers/trpc/router/response';
 import { usersResource } from '#/controllers/trpc/router/users';
-import { dz } from '#/repositories/db';
-import { usersTable } from '#/repositories/db/schema';
-import { selectCount } from '#/repositories/db/schema/utils';
+import { dz } from '#/infrastructures/db';
+import { usersTable } from '#/infrastructures/db/schema';
+import { selectCount } from '#/infrastructures/db/schema/utils';
 import { SQLiteSelectBuilder, SelectedFields } from 'drizzle-orm/sqlite-core';
 import { z } from 'zod';
 
