@@ -5,22 +5,21 @@ import path from 'path';
 configDotenv();
 
 export default {
-  schema: path.join(
+  schema: path.relative(
     __dirname,
-    'src',
-    'main',
-    'infrastructures',
-    'db',
-    'schema',
-    'index.ts',
+    path.join(
+      __dirname,
+      'src',
+      'main',
+      'infrastructures',
+      'db',
+      'schema',
+      'index.ts',
+    ),
   ),
-  out: path.join(
+  out: path.relative(
     __dirname,
-    'src',
-    'main',
-    'infrastructures',
-    'db',
-    'migrations',
+    path.join(__dirname, 'src', 'main', 'infrastructures', 'db', 'migrations'),
   ),
   driver: 'better-sqlite', // 'pg' | 'mysql2' | 'better-sqlite' | 'libsql' | 'turso'
   dbCredentials: {
