@@ -2,4 +2,7 @@ node_modules
 dist
 out
 pnpm-lock.yaml
-LICENSE.md
+*.md
+
+electron-builder.yml
+src/main/infrastructures/db/migrations

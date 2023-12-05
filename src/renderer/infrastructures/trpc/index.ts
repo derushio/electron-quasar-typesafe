@@ -1,6 +1,6 @@
 import type { AppRouter } from '#/controllers/trpc/router/index';
-import { Env } from '^/config/env';
 import { createTRPCProxyClient, httpLink } from '@trpc/client';
+import { Env } from '^/config/env';
 import { ipcLink } from 'electron-trpc/renderer';
 import superjson from 'superjson';
 
