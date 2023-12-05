@@ -23,10 +23,10 @@ export function sqliteNow() {
   return sql`(DATETIME('now', 'localtime'))`;
 }
 
-export function idColumns(): Record<string, SQLiteColumnBuilderBase> {
+export function idColumns() {
   return {
     id: text('id').primaryKey().notNull().default(sqliteUuid()),
-  };
+  } satisfies Record<string, SQLiteColumnBuilderBase>;
 }
 
 export function timestampColumns() {
