@@ -17,7 +17,7 @@
     "typecheck:web": "vue-tsc --noEmit -p tsconfig.web.json --composite false",
     "// prepare": "",
     "prepare:electron": "(cd src/renderer/infrastructures/trpc && cp index.electron.ts.cp index.ts) && electron-builder install-app-deps",
-    "prepare:node": "pnpm rebuild -r",
+    "prepare:node": "pnpm rebuild",
     "prepare:browser": "(cd src/renderer/infrastructures/trpc && cp index.browser.ts.cp index.ts)",
     "// electron": "",
     "electron:start": "electron-vite preview",
