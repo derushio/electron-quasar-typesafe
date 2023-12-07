@@ -1,20 +1,25 @@
 import type { AppRouter } from '#/controllers/trpc/router/index';
-import { createTRPCProxyClient, httpLink } from '@trpc/client';
+import {
+  createTRPCProxyClient,
+  experimental_formDataLink,
+  httpLink,
+  splitLink,
+} from '@trpc/client';
 import { Env } from '^/config/env';
-import { ipcLink } from 'electron-trpc/renderer';
 import superjson from 'superjson';
-
-Env;
-httpLink;
 
 export const trpc = createTRPCProxyClient<AppRouter>({
   transformer: superjson,
   links: [
-    // Electron環境向け
-    ipcLink(),
     // Server環境向け
-    // httpLink({
-    //   url: `http://localhost:${Env.VITE_RENDERER_BACKEND_PORT}`,
-    // }),
+    splitLink({
+      condition: (op) => op.input instanceof FormData,
+      true: experimental_formDataLink({
+        url: `http://localhost:${Env.VITE_RENDERER_BACKEND_PORT}`,
+      }),
+      false: httpLink({
+        url: `http://localhost:${Env.VITE_RENDERER_BACKEND_PORT}`,
+      }),
+    }),
   ],
 });

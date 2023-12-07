@@ -1,4 +1,3 @@
-import { ipcHandler } from '#/controllers/ipc';
 import { store } from '#/repositories/state';
 import icon from '&/resources/icon.png';
 import { is } from '@electron-toolkit/utils';
@@ -19,7 +18,6 @@ export class MainWindow extends BrowserWindow {
       },
     });
     store.mutations.setCurrentWindow(this);
-    ipcHandler.attachWindow(this);
 
     this.on('focus', () => {
       store.mutations.setCurrentWindow(this);
@@ -47,7 +45,6 @@ export class MainWindow extends BrowserWindow {
 
   public close() {
     store.mutations.setCurrentWindow(null);
-    ipcHandler.attachWindow(this);
 
     super.close();
   }

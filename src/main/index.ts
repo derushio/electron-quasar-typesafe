@@ -1,8 +1,16 @@
 import { seed } from '#/infrastructures/db/seed/seed';
 import { migrate } from '#/infrastructures/db/utils/migration';
 import { MainWindow } from '#/presentations/window/MainWindow';
+import { serve } from '#/serve';
 import { electronApp, optimizer } from '@electron-toolkit/utils';
 import { BrowserWindow, app } from 'electron';
+import { FormData } from 'formdata-node';
+import undici from 'undici';
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+(global as any).FormData = FormData;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+(global as any).File = undici.File;
 
 async function createWindow(): Promise<void> {
   // Create the browser window.
@@ -17,6 +25,7 @@ void app.whenReady().then(async () => {
   try {
     await migrate();
     await seed();
+    await serve();
 
     // Set app user model id for windows
     electronApp.setAppUserModelId('com.electron');
