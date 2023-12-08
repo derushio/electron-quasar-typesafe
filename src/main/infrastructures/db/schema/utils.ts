@@ -41,10 +41,10 @@ export function timestampIdxes<
   TColumnsMap extends
     | Record<string, SQLiteColumnBuilderBase>
     | ReturnType<typeof timestampColumns>,
->(table: BuildColumns<TTableName, TColumnsMap, 'sqlite'>) {
+>(tableName: string, table: BuildColumns<TTableName, TColumnsMap, 'sqlite'>) {
   return {
-    createdAtIdx: index('created_at_idx').on(table.createdAt),
-    updatedAtIdx: index('updated_at_idx').on(table.updateAt),
+    createdAtIdx: index(`${tableName}___created_at_idx`).on(table.createdAt),
+    updatedAtIdx: index(`${tableName}___updated_at_idx`).on(table.updateAt),
   } satisfies SQLiteTableExtraConfig;
 }
 
