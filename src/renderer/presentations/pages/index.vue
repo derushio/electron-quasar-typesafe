@@ -6,8 +6,9 @@
         <q-chip
           v-for="(user, i) in usersQuery.data.value?.responseList ?? []"
           :key="i"
-          >{{ user.name }}</q-chip
         >
+          {{ user.name }}
+        </q-chip>
       </div>
 
       <q-btn @click="log">button</q-btn>
