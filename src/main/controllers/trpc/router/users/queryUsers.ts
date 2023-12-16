@@ -4,7 +4,11 @@ import { usersResource } from '#/controllers/trpc/router/users';
 import { dz } from '#/infrastructures/db';
 import { usersTable } from '#/infrastructures/db/schema';
 import { selectCount } from '#/infrastructures/db/schema/utils';
-import { SQLiteSelectBuilder, SelectedFields } from 'drizzle-orm/sqlite-core';
+import {
+  SQLiteSelect,
+  SQLiteSelectBuilder,
+  SelectedFields,
+} from 'drizzle-orm/sqlite-core';
 import { z } from 'zod';
 
 export const QueryUsersRequestZod = z.object({
@@ -18,18 +22,17 @@ export const queryUsersRouter = t.router({
   [`${usersResource}` as const]: t.procedure
     .input(QueryUsersRequestZod)
     .query(async (req) => {
-      function usersQuery<
-        T extends SelectedFields | undefined,
-        U extends 'async' | 'sync',
-        V,
-      >(select: SQLiteSelectBuilder<T, U, V>) {
-        return select.from(usersTable);
+      function whereBuild(select: SQLiteSelect) {
+        // TODO: where
+        return select;
       }
 
-      const users = await usersQuery(dz.select())
+      const users = await whereBuild(dz.select().from(usersTable).$dynamic())
         .limit(req.input.limit)
         .offset(req.input.offset);
-      const count = await usersQuery(dz.select(selectCount()));
+      const count = await whereBuild(
+        dz.select(selectCount()).from(usersTable).$dynamic(),
+      );
 
       return responseList(users, count[0].count);
     }),
