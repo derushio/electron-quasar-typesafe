@@ -1,3 +1,4 @@
+import { createContext } from '#/controllers/trpc';
 import { appTrpcRouter } from '#/controllers/trpc/router';
 import * as trpcExpress from '@trpc/server/adapters/express';
 import { nodeHTTPFormDataContentTypeHandler } from '@trpc/server/adapters/node-http/content-type/form-data';
@@ -15,9 +16,7 @@ export function createTrpcServer() {
         nodeHTTPFormDataContentTypeHandler(),
         nodeHTTPJSONContentTypeHandler(),
       ],
-      createContext(opts) {
-        return { req: opts.req };
-      },
+      createContext: createContext,
       maxBodySize: 1 * 1024 * 1024 * 1024,
     }),
   );

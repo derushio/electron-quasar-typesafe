@@ -4,11 +4,18 @@ import {
   experimental_isMultipartFormDataRequest,
   experimental_parseMultipartFormData,
 } from '@trpc/server/adapters/node-http/content-type/form-data';
-import { NodeHTTPRequest } from '@trpc/server/dist/adapters/node-http';
+import { NodeHTTPCreateContextFnOptions } from '@trpc/server/dist/adapters/node-http';
+import { Request, Response } from 'express';
 import superjson from 'superjson';
 
+export async function createContext(
+  opts: NodeHTTPCreateContextFnOptions<Request, Response>,
+) {
+  return { req: opts.req };
+}
+
 /** router定義用 */
-export const t = initTRPC.create({
+export const t = initTRPC.context<typeof createContext>().create({
   transformer: superjson,
 });
 
@@ -17,15 +24,12 @@ export const tp = t.procedure;
 
 /** method定義用 (formdata) */
 export const tpf = tp.use(async (opts) => {
-  const ctx = opts.ctx as {
-    req: NodeHTTPRequest;
-  };
-  if (!experimental_isMultipartFormDataRequest(ctx.req)) {
+  if (!experimental_isMultipartFormDataRequest(opts.ctx.req)) {
     return opts.next();
   }
 
   const formData = await experimental_parseMultipartFormData(
-    ctx.req,
+    opts.ctx.req,
     experimental_createMemoryUploadHandler({
       maxPartSize: 1 * 1024 * 1024 * 1024,
     }),
