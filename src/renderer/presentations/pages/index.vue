@@ -39,4 +39,3 @@ function log() {
   console.log(Env.VITE_RENDERER_ENV_EXAMPLE);
 }
 </script>
-^/utils/wait
