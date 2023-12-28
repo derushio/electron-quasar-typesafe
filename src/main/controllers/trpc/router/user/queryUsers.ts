@@ -1,6 +1,6 @@
 import { t } from '#/controllers/trpc';
 import { responseList } from '#/controllers/trpc/router/response';
-import { usersResource } from '#/controllers/trpc/router/users';
+import { userResource } from '#/controllers/trpc/router/user';
 import { dz } from '#/infrastructures/db';
 import { usersTable } from '#/infrastructures/db/schema';
 import { selectCount } from '#/infrastructures/db/schema/utils';
@@ -15,7 +15,7 @@ export const QueryUsersRequestZod = z.object({
 export type QueryUsersRequest = z.infer<typeof QueryUsersRequestZod>;
 
 export const queryUsersRouter = t.router({
-  [`${usersResource}` as const]: t.procedure
+  [`${userResource}/query` as const]: t.procedure
     .input(QueryUsersRequestZod)
     .query(async (req) => {
       function whereBuild(select: SQLiteSelect) {
