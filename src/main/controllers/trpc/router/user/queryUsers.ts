@@ -18,7 +18,7 @@ export const queryUsersRouter = t.router({
   [`${userResource}/query` as const]: t.procedure
     .input(QueryUsersRequestZod)
     .query(async (req) => {
-      function buildWhere(select: SQLiteSelect) {
+      function buildWhere<T extends SQLiteSelect>(select: T) {
         // TODO: where
         return select;
       }
@@ -26,10 +26,10 @@ export const queryUsersRouter = t.router({
       const users = await buildWhere(dz.select().from(usersTable).$dynamic())
         .limit(req.input.limit)
         .offset(req.input.offset);
-      const count = await buildWhere(
-        dz.select(selectCount()).from(usersTable).$dynamic(),
-      );
+      const count = (
+        await buildWhere(dz.select(selectCount()).from(usersTable).$dynamic())
+      )[0].count;
 
-      return responseList(users, count[0].count);
+      return responseList(users, count);
     }),
 });
