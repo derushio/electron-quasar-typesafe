@@ -6,8 +6,6 @@ import { usersTable } from '#/infrastructures/db/schema';
 import { selectCount } from '#/infrastructures/db/schema/utils';
 import {
   SQLiteSelect,
-  SQLiteSelectBuilder,
-  SelectedFields,
 } from 'drizzle-orm/sqlite-core';
 import { z } from 'zod';
 
