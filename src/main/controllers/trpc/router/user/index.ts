@@ -1,1 +1,1 @@
-export const userResource = '/user' as const;
+export const userResource = 'user' as const;

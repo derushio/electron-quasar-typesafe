@@ -1,1 +1,1 @@
-export const currentWindowResource = '/currentWindow' as const;
+export const currentWindowResource = 'currentWindow' as const;
