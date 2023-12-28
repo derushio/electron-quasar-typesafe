@@ -4,9 +4,7 @@ import { usersResource } from '#/controllers/trpc/router/users';
 import { dz } from '#/infrastructures/db';
 import { usersTable } from '#/infrastructures/db/schema';
 import { selectCount } from '#/infrastructures/db/schema/utils';
-import {
-  SQLiteSelect,
-} from 'drizzle-orm/sqlite-core';
+import { SQLiteSelect } from 'drizzle-orm/sqlite-core';
 import { z } from 'zod';
 
 export const QueryUsersRequestZod = z.object({
