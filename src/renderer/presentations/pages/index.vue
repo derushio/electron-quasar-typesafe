@@ -30,7 +30,7 @@ const usersQuery = useQuery({
   queryKey: ['usersQuery'],
   queryFn: async () =>
     await loadingStore.actions.doLoadingAction(
-      async () => await trpc['/users'].query({}),
+      async () => await trpc['/user/query'].query({}),
     ),
 });
 
