@@ -1,10 +1,10 @@
-# electron-quasar-typesafe3
+# electron-quasar-typesafe
 
 型定義を適当にして開発したとしても、いい感じに型推測でtypesafeになることを目指しています。
 
 electronがメインですが、spa、ssr (nuxt) も開始できます。
 
-vite + electron + vue3 + quasar + electron-trpc + drizzle (SQLite)
+vite + electron + vue3 + quasar + trpc (json or formdata) + drizzle (SQLite)
 
 An Electron application with Vue and TypeScript
 
