@@ -18,15 +18,15 @@ export const queryUsersRouter = t.router({
   [`${userResource}/query` as const]: t.procedure
     .input(QueryUsersRequestZod)
     .query(async (req) => {
-      function whereBuild(select: SQLiteSelect) {
+      function buildWhere(select: SQLiteSelect) {
         // TODO: where
         return select;
       }
 
-      const users = await whereBuild(dz.select().from(usersTable).$dynamic())
+      const users = await buildWhere(dz.select().from(usersTable).$dynamic())
         .limit(req.input.limit)
         .offset(req.input.offset);
-      const count = await whereBuild(
+      const count = await buildWhere(
         dz.select(selectCount()).from(usersTable).$dynamic(),
       );
 
