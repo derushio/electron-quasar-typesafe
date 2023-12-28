@@ -12,13 +12,8 @@
 </template>
 
 <script setup lang="ts">
-export interface EssentialLinkProps {
-  title: string;
-  caption?: string;
-  link?: string;
-  target?: string;
-  icon?: string;
-}
+import { EssentialLinkProps } from '$/presentations/components/EssentialLink';
+
 withDefaults(defineProps<EssentialLinkProps>(), {
   caption: '',
   link: '#',
