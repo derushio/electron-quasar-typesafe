@@ -37,9 +37,9 @@
 </template>
 
 <script setup lang="ts">
-import EssentialLink from '$/presentations/components/EssentialLink.vue';
+import EssentialLink from '$/presentations/components/atoms/drawer/EssentialLink.vue';
 
-import { EssentialLinkProps } from '$/presentations/components/EssentialLink';
+import { EssentialLinkProps } from '$/presentations/components/atoms/drawer/EssentialLink';
 import { ref } from 'vue';
 
 const essentialLinks: EssentialLinkProps[] = [

@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { EssentialLinkProps } from '$/presentations/components/EssentialLink';
+import { EssentialLinkProps } from '$/presentations/components/atoms/drawer/EssentialLink';
 
 withDefaults(defineProps<EssentialLinkProps>(), {
   caption: '',
