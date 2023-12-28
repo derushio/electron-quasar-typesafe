@@ -16,11 +16,13 @@ export interface EssentialLinkProps {
   title: string;
   caption?: string;
   link?: string;
+  target?: string;
   icon?: string;
 }
 withDefaults(defineProps<EssentialLinkProps>(), {
   caption: '',
   link: '#',
+  target: '_blank',
   icon: '',
 });
 </script>
