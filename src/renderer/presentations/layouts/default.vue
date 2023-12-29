@@ -9,7 +9,7 @@
           round
           icon="menu"
           aria-label="Menu"
-          @click="toggleLeftDrawer"
+          @click="drawerStore.actions.toggleLeftDrawer()"
         />
 
         <q-toolbar-title>Quasar App</q-toolbar-title>
@@ -18,12 +18,12 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
+    <q-drawer v-model="drawerStore.leftDrawerOpen" show-if-above bordered>
       <q-list>
         <q-item-label header>Essential Links</q-item-label>
 
         <EssentialLink
-          v-for="link in essentialLinks"
+          v-for="link in drawerStore.essentialLinks"
           :key="link.title"
           v-bind="link"
         />
@@ -39,27 +39,7 @@
 <script setup lang="ts">
 import EssentialLink from '$/presentations/components/atoms/drawer/EssentialLink.vue';
 
-import { EssentialLinkProps } from '$/presentations/components/atoms/drawer/EssentialLink';
-import { ref } from 'vue';
+import { useDrawerStore } from '$/stores/features/general/drawerStore';
 
-const essentialLinks: EssentialLinkProps[] = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev',
-  },
-  {
-    title: 'Home',
-    icon: 'home',
-    link: '#',
-    target: '_self',
-  },
-];
-
-const leftDrawerOpen = ref(false);
-
-function toggleLeftDrawer() {
-  leftDrawerOpen.value = !leftDrawerOpen.value;
-}
+const drawerStore = useDrawerStore();
 </script>
