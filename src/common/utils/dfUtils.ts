@@ -1,7 +1,12 @@
 import { ja } from 'date-fns/locale';
 
-export const japaneseDateFormats = [
+export const japaneseDateTimeFormats = [
   'yyyy/MM/dd (eee) HH:mm',
+  { locale: ja },
+] as const;
+
+export const japaneseDateFormats = [
+  'yyyy/MM/dd (eee)',
   { locale: ja },
 ] as const;
 

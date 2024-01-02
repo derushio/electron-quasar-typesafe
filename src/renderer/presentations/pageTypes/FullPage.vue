@@ -7,6 +7,7 @@
 <style lang="scss">
 html,
 body,
+#app,
 #q-app,
 .q-layout,
 .q-page-container {
