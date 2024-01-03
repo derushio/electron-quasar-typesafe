@@ -1,4 +1,5 @@
 <template>
+  <!-- Blur付きQImg -->
   <div class="overflow-hidden">
     <q-img
       :src="src"
