@@ -14,7 +14,7 @@ export const usersTable = sqliteTable(
   tableName,
   {
     ...idColumns(),
-    name: text('name').unique(),
+    name: text('name').unique().notNull(),
     ...timestampColumns(),
   },
   (table) => ({
