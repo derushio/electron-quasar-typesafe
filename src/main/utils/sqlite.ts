@@ -1,6 +1,5 @@
 import { BuildColumns, sql } from 'drizzle-orm';
 import {
-  IndexColumn,
   SQLiteColumn,
   SQLiteColumnBuilderBase,
   SQLiteTableExtraConfig,
