@@ -33,7 +33,7 @@ export function sqliteIdColumns() {
 export function sqliteTimestampColumns() {
   return {
     createdAt: text('created_at').notNull().default(sqliteNow()),
-    updateAt: text('updated_at').notNull().default(sqliteNow()),
+    updatedAt: text('updated_at').notNull().default(sqliteNow()),
   } satisfies Record<string, SQLiteColumnBuilderBase>;
 }
 
@@ -44,8 +44,8 @@ export function sqliteTimestampIdxes<
     | ReturnType<typeof sqliteTimestampColumns>,
 >(tableName: string, table: BuildColumns<TTableName, TColumnsMap, 'sqlite'>) {
   return {
-    createdAtIdx: index(`${tableName}___created_at_idx`).on(table.createdAt),
-    updatedAtIdx: index(`${tableName}___updated_at_idx`).on(table.updateAt),
+    createdAtIdx: sqliteGenerateIndex(tableName, table.createdAt),
+    updatedAtIdx: sqliteGenerateIndex(tableName, table.updatedAt),
   } satisfies SQLiteTableExtraConfig;
 }
 
