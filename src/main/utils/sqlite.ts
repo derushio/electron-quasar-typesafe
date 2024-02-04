@@ -57,9 +57,9 @@ export function sqliteGenerateIndex<T extends SQLiteColumn>(
   return index(`${tableName}___${column.name}_idx`).on(column);
 }
 
-export function sqliteGenerateUniqueIndex<T extends SQLiteColumn>(
+export function sqliteGenerateUniqueIndex(
   tableName: string,
-  ...columns: [T, ...T[]]
+  ...columns: [SQLiteColumn, ...SQLiteColumn[]]
 ) {
   return uniqueIndex(
     `${tableName}___unique_${columns.map((v) => v.name).join('_')}`,
