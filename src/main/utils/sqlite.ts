@@ -1,5 +1,6 @@
 import { BuildColumns, sql } from 'drizzle-orm';
 import {
+  SQLiteColumn,
   SQLiteColumnBuilderBase,
   SQLiteTableExtraConfig,
   index,
@@ -48,8 +49,11 @@ export function sqliteTimestampIdxes<
   } satisfies SQLiteTableExtraConfig;
 }
 
-export function sqliteGenerateIndex(tableName: string, columnName: string) {
-  return `${tableName}___${columnName}_idx`;
+export function sqliteGenerateIndex<T extends SQLiteColumn>(
+  tableName: string,
+  column: T,
+) {
+  return index(`${tableName}___${column.name}_idx`).on(column);
 }
 
 export function sqliteSelectCount() {

@@ -4,7 +4,7 @@ import {
   sqliteTimestampColumns,
   sqliteTimestampIdxes,
 } from '#/utils/sqlite';
-import { index, sqliteTable, text } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
 const tableName = 'users';
 
@@ -19,9 +19,7 @@ export const usersTable = sqliteTable(
     ...sqliteTimestampColumns(),
   },
   (table) => ({
-    nameIdx: index(sqliteGenerateIndex(tableName, table.name.name)).on(
-      table.name,
-    ),
+    nameIdx: sqliteGenerateIndex(tableName, table.name),
     ...sqliteTimestampIdxes(tableName, table),
   }),
 );
