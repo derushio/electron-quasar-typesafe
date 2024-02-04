@@ -1,4 +1,5 @@
 import {
+  sqliteGenerateIndex,
   sqliteIdColumns,
   sqliteTimestampColumns,
   sqliteTimestampIdxes,
@@ -18,7 +19,9 @@ export const usersTable = sqliteTable(
     ...sqliteTimestampColumns(),
   },
   (table) => ({
-    nameIdx: index(`${tableName}___name_idx`).on(table.name),
+    nameIdx: index(sqliteGenerateIndex(tableName, table.name.name)).on(
+      table.name,
+    ),
     ...sqliteTimestampIdxes(tableName, table),
   }),
 );

@@ -48,6 +48,10 @@ export function sqliteTimestampIdxes<
   } satisfies SQLiteTableExtraConfig;
 }
 
+export function sqliteGenerateIndex(tableName: string, columnName: string) {
+  return `${tableName}___${columnName}_idx`;
+}
+
 export function sqliteSelectCount() {
   return {
     count: sql<number>`CAST(COUNT(*) as UNSIGNED)`,
