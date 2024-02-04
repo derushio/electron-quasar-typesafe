@@ -25,6 +25,10 @@ export function sqliteNow() {
   return sql`(DATETIME('now', 'localtime'))`;
 }
 
+export function sqliteNullAlt() {
+  return '1980-01-01 00:00:00';
+}
+
 export function sqliteIdColumns() {
   return {
     id: text('id').primaryKey().notNull().default(sqliteUuid()),
