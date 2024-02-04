@@ -1,8 +1,8 @@
 import {
-  idColumns,
-  timestampColumns,
-  timestampIdxes,
-} from '#/infrastructures/db/schema/utils';
+  sqliteIdColumns,
+  sqliteTimestampColumns,
+  sqliteTimestampIdxes,
+} from '#/utils/sqlite';
 import { index, sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
 const tableName = 'users';
@@ -13,12 +13,12 @@ const tableName = 'users';
 export const usersTable = sqliteTable(
   tableName,
   {
-    ...idColumns(),
+    ...sqliteIdColumns(),
     name: text('name').unique().notNull(),
-    ...timestampColumns(),
+    ...sqliteTimestampColumns(),
   },
   (table) => ({
     nameIdx: index(`${tableName}___name_idx`).on(table.name),
-    ...timestampIdxes(tableName, table),
+    ...sqliteTimestampIdxes(tableName, table),
   }),
 );

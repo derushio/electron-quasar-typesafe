@@ -1,5 +1,5 @@
-import { seed } from '#/infrastructures/db/seed/seed';
-import { migrate } from '#/infrastructures/db/utils/migration';
+import { mainDbSeed } from '#/infrastructures/db/mainDb/seed/seed';
+import { mainDbMigrate } from '#/infrastructures/db/mainDb/utils/migration';
 import { MainWindow } from '#/presentations/window/MainWindow';
 import { serve } from '#/serve';
 import { electronApp, optimizer } from '@electron-toolkit/utils';
@@ -23,8 +23,8 @@ async function createWindow(): Promise<void> {
 // Some APIs can only be used after this event occurs.
 void app.whenReady().then(async () => {
   try {
-    await migrate();
-    await seed();
+    await mainDbMigrate();
+    await mainDbSeed();
     await serve();
 
     // Set app user model id for windows

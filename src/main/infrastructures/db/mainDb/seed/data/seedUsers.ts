@@ -1,6 +1,6 @@
-import { dz } from '#/infrastructures/db';
-import { usersTable } from '#/infrastructures/db/schema';
-import { separate } from '#/infrastructures/db/seed/separator';
+import { mainDbDz } from '#/infrastructures/db/mainDb';
+import { usersTable } from '#/infrastructures/db/mainDb/schema';
+import { separate } from '#/utils/separator';
 
 export const testUser = {
   id: '84b4b648-820f-4172-b154-1c3c5b0194e1',
@@ -14,7 +14,7 @@ export default async function seedUsers() {
   console.info('seedUsers');
 
   for (const user of defaultUsers) {
-    await dz
+    await mainDbDz
       .insert(usersTable)
       .values({
         id: user.id,

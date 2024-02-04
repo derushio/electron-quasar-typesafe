@@ -23,24 +23,24 @@ export function sqliteNow() {
   return sql`(DATETIME('now', 'localtime'))`;
 }
 
-export function idColumns() {
+export function sqliteIdColumns() {
   return {
     id: text('id').primaryKey().notNull().default(sqliteUuid()),
   } satisfies Record<string, SQLiteColumnBuilderBase>;
 }
 
-export function timestampColumns() {
+export function sqliteTimestampColumns() {
   return {
     createdAt: text('created_at').notNull().default(sqliteNow()),
     updateAt: text('updated_at').notNull().default(sqliteNow()),
   } satisfies Record<string, SQLiteColumnBuilderBase>;
 }
 
-export function timestampIdxes<
+export function sqliteTimestampIdxes<
   TTableName extends string,
   TColumnsMap extends
     | Record<string, SQLiteColumnBuilderBase>
-    | ReturnType<typeof timestampColumns>,
+    | ReturnType<typeof sqliteTimestampColumns>,
 >(tableName: string, table: BuildColumns<TTableName, TColumnsMap, 'sqlite'>) {
   return {
     createdAtIdx: index(`${tableName}___created_at_idx`).on(table.createdAt),
@@ -48,7 +48,7 @@ export function timestampIdxes<
   } satisfies SQLiteTableExtraConfig;
 }
 
-export function selectCount() {
+export function sqliteSelectCount() {
   return {
     count: sql<number>`cast(count(*) as UNSIGNED)`,
   };
