@@ -1,7 +1,7 @@
 import { pgIdColumns, pgTimestampColumns, pgTimestampIdxes } from '#/utils/pg';
 import { index, pgTable, text } from 'drizzle-orm/pg-core';
 
-const tableName = 'users';
+const tableName = 'posts';
 
 /**
  * 投稿テーブル

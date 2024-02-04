@@ -4,6 +4,7 @@
 export abstract class Entity {
   /** public static系のメソッドはOverrideできないためコメントアウトして置いておく */
   // public static async getById(id: string): Promise<EntityNullableResult<Entity>> {
+  //   id;
   //   throw new Error('Method not implemented.');
   // }
   // public static async query<T>(args: T): Promise<EntityListResult<Entity>> {
