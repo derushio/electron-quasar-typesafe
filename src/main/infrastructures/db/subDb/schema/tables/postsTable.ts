@@ -10,11 +10,14 @@ export const postsTable = pgTable(
   tableName,
   {
     ...pgIdColumns(),
+
     name: text('name').unique().notNull(),
+
     ...pgTimestampColumns(),
   },
   (table) => ({
     nameIdx: index().on(table.name),
+
     ...pgTimestampIdxes(tableName, table),
   }),
 );

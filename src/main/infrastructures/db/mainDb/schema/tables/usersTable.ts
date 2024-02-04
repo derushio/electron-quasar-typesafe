@@ -15,11 +15,14 @@ export const usersTable = sqliteTable(
   tableName,
   {
     ...sqliteIdColumns(),
+
     name: text('name').unique().notNull(),
+
     ...sqliteTimestampColumns(),
   },
   (table) => ({
     name: sqliteGenerateIndex(tableName, table.name),
+
     ...sqliteTimestampIdxes(tableName, table),
   }),
 );
