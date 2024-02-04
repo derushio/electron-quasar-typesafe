@@ -12,14 +12,14 @@ try {
 
     VITE_DATABASE_MAIN_URL: import.meta.env.VITE_DATABASE_MAIN_URL ?? '',
 
-    VITE_DATABASE_MAIN_HOST: import.meta.env.VITE_DATABASE_MAIN_HOST ?? '',
-    VITE_DATABASE_MAIN_PORT: Number(
-      import.meta.env.VITE_DATABASE_MAIN_PORT ?? '5432',
+    VITE_DATABASE_SUB_HOST: import.meta.env.VITE_DATABASE_SUB_HOST ?? '',
+    VITE_DATABASE_SUB_PORT: Number(
+      import.meta.env.VITE_DATABASE_SUB_PORT ?? '5432',
     ),
-    VITE_DATABASE_MAIN_USER: import.meta.env.VITE_DATABASE_MAIN_USER ?? '',
-    VITE_DATABASE_MAIN_PASSWORD:
-      import.meta.env.VITE_DATABASE_MAIN_PASSWORD ?? '',
-    VITE_DATABASE_MAIN_NAME: import.meta.env.VITE_DATABASE_MAIN_NAME ?? '',
+    VITE_DATABASE_SUB_USER: import.meta.env.VITE_DATABASE_SUB_USER ?? '',
+    VITE_DATABASE_SUB_PASSWORD:
+      import.meta.env.VITE_DATABASE_SUB_PASSWORD ?? '',
+    VITE_DATABASE_SUB_NAME: import.meta.env.VITE_DATABASE_SUB_NAME ?? '',
   };
 } catch {}
 
