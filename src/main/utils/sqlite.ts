@@ -1,10 +1,12 @@
 import { BuildColumns, sql } from 'drizzle-orm';
 import {
+  IndexColumn,
   SQLiteColumn,
   SQLiteColumnBuilderBase,
   SQLiteTableExtraConfig,
   index,
   text,
+  uniqueIndex,
 } from 'drizzle-orm/sqlite-core';
 
 export function sqliteUuid() {
@@ -54,6 +56,15 @@ export function sqliteGenerateIndex<T extends SQLiteColumn>(
   column: T,
 ) {
   return index(`${tableName}___${column.name}_idx`).on(column);
+}
+
+export function sqliteGenerateUniqueIndex<T extends SQLiteColumn>(
+  tableName: string,
+  ...columns: [T, ...T[]]
+) {
+  return uniqueIndex(
+    `${tableName}___unique_${columns.map((v) => v.name).join('_')}`,
+  ).on(...columns);
 }
 
 export function sqliteSelectCount() {
