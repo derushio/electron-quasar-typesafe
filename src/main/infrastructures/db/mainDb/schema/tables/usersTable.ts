@@ -19,7 +19,7 @@ export const usersTable = sqliteTable(
     ...sqliteTimestampColumns(),
   },
   (table) => ({
-    nameIdx: sqliteGenerateIndex(tableName, table.name),
+    name: sqliteGenerateIndex(tableName, table.name),
     ...sqliteTimestampIdxes(tableName, table),
   }),
 );
