@@ -50,6 +50,6 @@ export function sqliteTimestampIdxes<
 
 export function sqliteSelectCount() {
   return {
-    count: sql<number>`cast(count(*) as UNSIGNED)`,
+    count: sql<number>`CAST(COUNT(*) as UNSIGNED)`,
   };
 }
