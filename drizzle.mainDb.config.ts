@@ -30,6 +30,9 @@ export default {
   ),
   driver: 'better-sqlite', // 'pg' | 'mysql2' | 'better-sqlite' | 'libsql' | 'turso'
   dbCredentials: {
-    url: path.join(__dirname, Env.VITE_DATABASE_URL.replace('./', '') ?? ''),
+    url: path.join(
+      __dirname,
+      Env.VITE_DATABASE_MAIN_URL.replace('./', '') ?? '',
+    ),
   },
 } satisfies Config;
