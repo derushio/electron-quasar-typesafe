@@ -54,11 +54,13 @@ export function sqliteTimestampIdxes<
   } satisfies SQLiteTableExtraConfig;
 }
 
-export function sqliteGenerateIndex<T extends SQLiteColumn>(
+export function sqliteGenerateIndex(
   tableName: string,
-  column: T,
+  ...columns: [SQLiteColumn, ...SQLiteColumn[]]
 ) {
-  return index(`${tableName}___${column.name}_idx`).on(column);
+  return index(`${tableName}___${columns.map((v) => v.name).join('_')}_idx`).on(
+    ...columns,
+  );
 }
 
 export function sqliteGenerateUniqueIndex(
