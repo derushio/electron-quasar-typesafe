@@ -1,4 +1,4 @@
-import { t } from '#/controllers/trpc';
+import { t, tp } from '#/controllers/trpc';
 import { responseList } from '#/controllers/trpc/router/response';
 import { userResource } from '#/controllers/trpc/router/user';
 import { mainDbDz } from '#/infrastructures/db/mainDb';
@@ -15,7 +15,7 @@ export const QueryUsersRequestZod = z.object({
 export type QueryUsersRequest = z.infer<typeof QueryUsersRequestZod>;
 
 export const queryUsersRouter = t.router({
-  [`${userResource}/query` as const]: t.procedure
+  [`${userResource}/query` as const]: tp
     .input(QueryUsersRequestZod)
     .query(async (req) => {
       function buildWhere<T extends SQLiteSelect>(select: T) {
