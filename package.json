@@ -83,7 +83,8 @@
     "uuid": "^9.0.1",
     "vue": "^3.3.10",
     "vue-router": "^4.2.5",
-    "zod": "^3.22.4"
+    "zod": "^3.22.4",
+    "zod-form-data": "^2.0.2"
   },
   "devDependencies": {
     "@electron-toolkit/tsconfig": "^1.0.1",
