@@ -24,10 +24,10 @@ export class User extends Entity {
     throw new Error('Method not implemented.');
   }
 
-  public save(): Promise<EntityResult<this>> {
+  public async save(): Promise<EntityResult<this>> {
     throw new Error('Method not implemented.');
   }
-  public delete(): Promise<void> {
+  public async delete(): Promise<void> {
     throw new Error('Method not implemented.');
   }
 }
