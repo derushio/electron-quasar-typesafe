@@ -1,16 +1,11 @@
+import '#/utils/formdata';
+
 import { mainDbSeed } from '#/infrastructures/db/mainDb/seed/seed';
 import { mainDbMigrate } from '#/infrastructures/db/mainDb/utils/migration';
 import { MainWindow } from '#/presentations/window/MainWindow';
 import { serve } from '#/serve';
 import { electronApp, optimizer } from '@electron-toolkit/utils';
 import { BrowserWindow, app } from 'electron';
-import { FormData } from 'formdata-node';
-import undici from 'undici';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-(global as any).FormData = FormData;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-(global as any).File = undici.File;
 
 async function createWindow(): Promise<void> {
   // Create the browser window.

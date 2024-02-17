@@ -21,6 +21,7 @@ module.exports = {
   htmlWhitespaceSensitivity: 'ignore',
 
   importOrder: [
+    '#/utils/formdata',
     'reflect-metadata',
     '^.*\\.vue$',
     '^@core\\/(.*)$',
