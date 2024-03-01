@@ -9,6 +9,8 @@ try {
 export const Env = {
   VITE_BUILDED: (env.VITE_BUILDED ?? 'false') === 'true',
 
+  VITE_RENDERER_APP_NAME: env.VITE_RENDERER_APP_NAME ?? '',
+
   VITE_RENDERER_ENV_EXAMPLE: env.VITE_RENDERER_ENV_EXAMPLE ?? '',
   VITE_ENV_EXAMPLE: env.VITE_ENV_EXAMPLE ?? '',
   VITE_RENDERER_BACKEND_PORT: parseInt(

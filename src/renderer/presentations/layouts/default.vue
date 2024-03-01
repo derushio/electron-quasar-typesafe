@@ -12,7 +12,7 @@
           @click="drawerStore.actions.toggleLeftDrawer()"
         />
 
-        <q-toolbar-title>Quasar App</q-toolbar-title>
+        <q-toolbar-title>{{ Env.VITE_RENDERER_APP_NAME }}</q-toolbar-title>
 
         <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
@@ -40,6 +40,7 @@
 import EssentialLink from '$/presentations/components/atoms/drawer/EssentialLink.vue';
 
 import { useDrawerStore } from '$/stores/features/general/drawerStore';
+import { Env } from '^/config/env';
 
 const drawerStore = useDrawerStore();
 </script>

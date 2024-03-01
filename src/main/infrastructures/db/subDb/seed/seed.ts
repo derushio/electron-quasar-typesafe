@@ -1,8 +1,8 @@
-import seedUsers from '#/infrastructures/db/mainDb/seed/data/seedUsers';
+import seedPosts from '#/infrastructures/db/subDb/seed/data/seedUsers';
 
 /**
  * upsertでseedする
  */
 export async function subDbSeed() {
-  await seedUsers();
+  await seedPosts();
 }

@@ -7,7 +7,7 @@ export abstract class Entity {
   //   id;
   //   throw new Error('Method not implemented.');
   // }
-  // public static async query<T>(args: T): Promise<EntityListResult<Entity>> {
+  // public static async query(args: unknown): Promise<EntityListResult<Entity>> {
   //   args;
   //   throw new Error('Method not implemented.');
   // }

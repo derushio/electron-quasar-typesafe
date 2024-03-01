@@ -16,7 +16,7 @@ export const postsTable = pgTable(
     ...pgTimestampColumns(),
   },
   (table) => ({
-    nameIdx: index().on(table.name),
+    name: index().on(table.name),
 
     ...pgTimestampIdxes(tableName, table),
   }),

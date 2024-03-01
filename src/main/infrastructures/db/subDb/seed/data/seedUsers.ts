@@ -1,33 +1,33 @@
-import { mainDbDz } from '#/infrastructures/db/mainDb';
-import { usersTable } from '#/infrastructures/db/mainDb/schema';
+import { subDbDz } from '#/infrastructures/db/subDb';
+import { postsTable } from '#/infrastructures/db/subDb/schema';
 import { separate } from '#/utils/separator';
 
-export const testUser = {
-  id: '84b4b648-820f-4172-b154-1c3c5b0194e1',
+export const testPost = {
+  id: '3d84b1f8-bb5a-4867-8fde-e46e3e6ac854',
   name: 'test',
 } as const;
 
-export const defaultUsers = [testUser] as const;
+export const defaultPosts = [testPost] as const;
 
-export default async function seedUsers() {
+export default async function seedPosts() {
   separate();
-  console.info('seedUsers');
+  console.info('seedPosts');
 
-  for (const user of defaultUsers) {
-    await mainDbDz
-      .insert(usersTable)
+  for (const post of defaultPosts) {
+    await subDbDz
+      .insert(postsTable)
       .values({
-        id: user.id,
-        name: user.name,
+        id: post.id,
+        name: post.name,
       })
       .onConflictDoUpdate({
-        target: usersTable.id,
+        target: postsTable.id,
         set: {
-          id: user.id,
-          name: user.name,
+          id: post.id,
+          name: post.name,
         },
       });
 
-    console.info('seedUser:', user.name);
+    console.info('seedPost:', post.name);
   }
 }

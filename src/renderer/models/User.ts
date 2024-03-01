@@ -19,7 +19,7 @@ export class User extends Entity {
     id;
     throw new Error('Method not implemented.');
   }
-  public static async query<T>(args: T): Promise<EntityListResult<User>> {
+  public static async query(args: unknown): Promise<EntityListResult<User>> {
     args;
     throw new Error('Method not implemented.');
   }

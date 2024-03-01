@@ -6,7 +6,7 @@
 
     <q-item-section>
       <q-item-label>{{ title }}</q-item-label>
-      <q-item-label caption>{{ caption }}</q-item-label>
+      <q-item-label caption v-if="caption">{{ caption }}</q-item-label>
     </q-item-section>
   </q-item>
 </template>
@@ -15,7 +15,6 @@
 import { EssentialLinkProps } from '$/presentations/components/atoms/drawer/EssentialLink';
 
 withDefaults(defineProps<EssentialLinkProps>(), {
-  caption: '',
   link: '#',
   target: '_blank',
   icon: '',
