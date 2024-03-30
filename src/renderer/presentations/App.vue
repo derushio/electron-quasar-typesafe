@@ -1,12 +1,15 @@
 <template>
+  <!-- nuxtでは無効化してください -->
   <router-view />
-  <NuxtLayout />
+  <!-- electron, spaでは無効化してください -->
+  <!-- <NuxtLayout /> -->
 </template>
 
 <script setup lang="ts">
 import { Env } from '^/config/env';
 import { useMeta } from 'quasar';
 
+// nuxtでは無効化してください
 useMeta({
   title: Env.VITE_RENDERER_APP_NAME,
 });
