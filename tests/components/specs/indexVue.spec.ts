@@ -1,10 +1,10 @@
-import IndexPageVue from '$/presentations/pages/IndexPage.vue';
+import indexVue from '$/presentations/pages/index.vue';
 
 import { shallowMount } from '@vue/test-utils';
 import { createPinia, setActivePinia } from 'pinia';
 import { test } from 'vitest';
 
-test('IndexPageVue', async () => {
+test('indexVue', async () => {
   setActivePinia(createPinia());
-  shallowMount(IndexPageVue);
+  shallowMount(indexVue);
 });
