@@ -29,6 +29,10 @@ code app
 in `./`
 
 ```bash
+cp ./app/.env.example ./app/.env
+```
+
+```bash
 docker compose up pg
 ```
 
@@ -37,11 +41,11 @@ docker compose up pg
 in `./app`
 
 ```bash
-pnpm install
+cp .env.example .env
 ```
 
 ```bash
-cp .env.example .env
+pnpm install
 ```
 
 ### Development
