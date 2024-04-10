@@ -26,10 +26,10 @@ code app
 
 ### Start Postgres for Local Debug
 
-in `./`
+in `./app`
 
 ```bash
-cp ./app/.env.example ./app/.env
+cp .env.example .env
 ```
 
 ```bash
