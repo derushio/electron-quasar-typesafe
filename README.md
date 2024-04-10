@@ -15,12 +15,6 @@ vite + electron + vue3 + quasar + trpc (json or formdata) + drizzle (SQLite)
 ### Open Project
 
 ```bash
-open proj.code-workspace
-```
-
-or
-
-```bash
 code app
 ```
 
