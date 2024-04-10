@@ -1,0 +1,90 @@
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "id": "5c204eff-66b2-406f-8c61-adebf058529b",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "tables": {
+    "posts": {
+      "name": "posts",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(\n    PRINTF(\n      '%s-%s-%s-%s-%s',\n      LOWER(HEX(RANDOMBLOB(4))),\n      LOWER(HEX(RANDOMBLOB(2))),\n      LOWER(HEX(RANDOMBLOB(2))),\n      LOWER(HEX(RANDOMBLOB(2))),\n      LOWER(HEX(RANDOMBLOB(6)))\n    )\n  )"
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(DATETIME('now', 'localtime'))"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(DATETIME('now', 'localtime'))"
+        }
+      },
+      "indexes": {
+        "posts_title_unique": {
+          "name": "posts_title_unique",
+          "columns": [
+            "title"
+          ],
+          "isUnique": true
+        },
+        "posts___title_idx": {
+          "name": "posts___title_idx",
+          "columns": [
+            "title"
+          ],
+          "isUnique": false
+        },
+        "posts___created_at_idx": {
+          "name": "posts___created_at_idx",
+          "columns": [
+            "created_at"
+          ],
+          "isUnique": false
+        },
+        "posts___updated_at_idx": {
+          "name": "posts___updated_at_idx",
+          "columns": [
+            "updated_at"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}

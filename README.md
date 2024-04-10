@@ -6,15 +6,35 @@ electronがメインですが、spa、ssr (nuxt) も開始できます。
 
 vite + electron + vue3 + quasar + trpc (json or formdata) + drizzle (SQLite)
 
-An Electron application with Vue and TypeScript
-
 ## Recommended IDE Setup
 
 - [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
 ## Project Setup
 
+### Open Project
+
+```bash
+open proj.code-workspace
+```
+
+or
+
+```bash
+code app
+```
+
+### Start Postgres for Local Debug
+
+in `./`
+
+```bash
+docker compose up pg
+```
+
 ### Install
+
+in `./app`
 
 ```bash
 pnpm install
@@ -25,6 +45,8 @@ cp .env.example .env
 ```
 
 ### Development
+
+in `./app`
 
 #### Electron向け
 
@@ -44,15 +66,17 @@ pnpm spa:dev
 pnpm ssr:dev
 ```
 
-### Build
+### Build App
+
+in `./app`
 
 ```bash
 # For windows
-npm run build:win
+pnpm build:win
 
 # For macOS
-npm run build:mac
+pnpm build:mac
 
 # For Linux
-npm run build:linux
+pnpm build:linux
 ```
