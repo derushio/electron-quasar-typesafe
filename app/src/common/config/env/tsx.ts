@@ -17,7 +17,7 @@ export const Env = {
     env.VITE_RENDERER_BACKEND_PORT ?? '8020',
   ),
   VITE_RENDERER_BACKEND_URL:
-    env.VITE_RENDERER_BACKEND_URL ?? 'http://localhost:8020',
+    env.VITE_RENDERER_BACKEND_URL ?? 'http://localhost:8020/trpc',
 
   VITE_DATABASE_MAIN_URL: env.VITE_DATABASE_MAIN_URL ?? '',
 

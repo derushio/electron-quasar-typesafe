@@ -12,7 +12,7 @@ try {
       import.meta.env.VITE_RENDERER_BACKEND_PORT ?? '8020',
     ),
     VITE_RENDERER_BACKEND_URL:
-      import.meta.env.VITE_RENDERER_BACKEND_URL ?? 'http://localhost:8020',
+      import.meta.env.VITE_RENDERER_BACKEND_URL ?? 'http://localhost:8020/trpc',
 
     VITE_DATABASE_MAIN_URL: import.meta.env.VITE_DATABASE_MAIN_URL ?? '',
 

@@ -9,6 +9,7 @@ import express from 'express';
 export function createTrpcServer() {
   const app = express();
   app.use(
+    '/trpc',
     trpcExpress.createExpressMiddleware({
       middleware: cors(),
       router: appTrpcRouter,
