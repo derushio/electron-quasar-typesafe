@@ -17,6 +17,15 @@ h3 {
   font-size: 1.2em;
 }
 
+.full {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  min-height: 100% !important;
+}
+
 .display-none {
   display: none;
 }
