@@ -1,8 +1,5 @@
-import { configDotenv } from 'dotenv';
-
 let env: Record<string, string | undefined> = {};
 try {
-  configDotenv();
   env = process.env;
 } catch {}
 
