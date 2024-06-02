@@ -83,7 +83,7 @@
     "pinia": "^2.1.7",
     "quasar": "^2.15.2",
     "superjson": "~1",
-    "dotenvx run -- tsx": "^4.7.2",
+    "tsx": "^4.7.2",
     "undici": "^6.10.2",
     "uuid": "^9.0.1",
     "vite": "^5.2.8",
