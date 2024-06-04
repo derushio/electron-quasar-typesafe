@@ -13,7 +13,7 @@ export const usersTable = pgTable(
 
     email: text('email').unique().notNull(),
     /** sha512 */
-    passwordHash: text('passwordHash').notNull(),
+    passwordHash: text('password_hash').notNull(),
 
     ...pgTimestampColumns(),
   },
