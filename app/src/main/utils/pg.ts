@@ -16,7 +16,7 @@ export function pgIdColumns() {
 export function pgTimestampColumns() {
   return {
     createdAt: timestamp('created_at').notNull().defaultNow(),
-    updateAt: timestamp('updated_at').notNull().defaultNow(),
+    updatedAt: timestamp('updated_at').notNull().defaultNow(),
   } satisfies Record<string, PgColumnBuilderBase>;
 }
 
@@ -29,7 +29,7 @@ export function pgTimestampIdxes<
   tableName;
   return {
     createdAtIdx: index().on(table.createdAt),
-    updatedAtIdx: index().on(table.updateAt),
+    updatedAtIdx: index().on(table.updatedAt),
   } satisfies PgTableExtraConfig;
 }
 
